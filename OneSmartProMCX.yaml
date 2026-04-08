@@ -30,11 +30,11 @@ BaseSmart: &BaseSmart {type: smart, interval: 60, lazy: true, url: 'https://cp.c
 # =========================
 # 节点筛选正则（前置模板）
 # --- 常用地区节点 ---
-FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK\d+|HK[-_ ]?\d*).*$',icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
-FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG\d+|SG[-_ ]?\d*|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
-FilterJP: &FilterJP { filter: '^(?!.*尼日)(?i).*(日|🇯🇵|JP|JP[-_ ]?\d*|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
-FilterUS: &FilterUS { filter: '^(?!.*南美)(?i).*(美|🇺🇸|US|US[-_ ]?\d*|USA|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
-FilterTW: &FilterTW { filter: '^(?!.*(烟台|平台))(?i).*(台|🇼🇸|🇹🇼|TW|TW[-_ ]?\d*|tai|TPE|TSA|KHH).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
+FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK[-_ ]?\d*).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
+FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG[-_ ]?\d*|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
+FilterJP: &FilterJP { filter: '^(?i)(?!.*尼日).*(日|🇯🇵|JP|JP[-_ ]?\d*|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
+FilterUS: &FilterUS { filter: '^(?i)(?!.*南美).*(美|🇺🇸|US|US[-_ ]?\d*|USA|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
+FilterTW: &FilterTW { filter: '^(?i)(?!.*(烟台|平台)).*(台|🇼🇸|🇹🇼|TW|TW[-_ ]?\d*|tai|TPE|TSA|KHH).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
 # --- 冷门节点 ---
 FilterEU: &FilterEU { filter: '^(?is)(?!.*(🇭🇰|香港|hong\s?kong|\bHK\b|🇸🇬|新加坡|singapore|\bSG\b|🇯🇵|日本|japan|\bJP\b|🇹🇼|台湾|taiwan|TW\d+|TW[-_ ]?\d*|🇺🇸|美国|united\s?states|usa|\bUS\b|剩余|重置|套餐|距离|直接连接|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入)).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/European_Union.png' } 
 # --- 倍率节点筛选 ---
