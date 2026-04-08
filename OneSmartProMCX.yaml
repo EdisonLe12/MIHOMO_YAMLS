@@ -35,7 +35,7 @@ BaseSmart: &BaseSmart {type: smart, interval: 60, lazy: true, url: 'https://cp.c
 # --- 常用地区节点 ---
 FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK\d+|HK[-_ ]?\d*).*$',icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
 FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG\d+|SG[-_ ]?\d*|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
-FilterJP: &FilterJP { filter: '^(?i).*(日|🇯🇵|JP|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
+FilterJP: &FilterJP { filter: '^(?!.*尼日)(?i).*(日|🇯🇵|JP|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
 FilterUS: &FilterUS { filter: '^(?i).*(美|🇺🇸|US|USA|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
 FilterTW: &FilterTW { filter: '^(?i).*(台|🇼🇸|🇹🇼|TW|tai|TPE|TSA|KHH).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
 # --- 冷门节点 ---
