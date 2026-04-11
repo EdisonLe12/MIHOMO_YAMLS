@@ -268,9 +268,11 @@ rules:
 #- IP-CIDR,你需要的代理IP/32,Proxy                                     #需要强制走代理的IP
 #- SRC-IP-CIDR,你需要走直连的IP/32,国内直连                             #需要强制走国内的IP
 
-# ==================== 阻止 QUIC ====================
+# ==================== 阻止 QUIC/APP内置DOH ====================
   - AND,(DST-PORT,443),(NETWORK,UDP),(NOT,((RULE-SET,China))),REJECT
   - AND,(DST-PORT,443),(NETWORK,UDP),(NOT,((RULE-SET,China-IP))),REJECT
+  - RULE-SET,Encrypted_DNS_IP,REJECT,no-resolve
+  - RULE-SET,Category-DoH,REJECT
 
 # --- 基础直连 ---
   - RULE-SET,Private,国内直连                      # 局域网域名直连 (路由后台/NAS)
@@ -438,6 +440,7 @@ rule-providers:
 
 # --- 🏠 基础直连& 下载& 测速---
   Private:       {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/private.mrs, path: ./ruleset/private.mrs}
+  Category-DoH:  {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-doh.mrs, path: ./ruleset/category-doh.mrs}
   HTTPDNS-CN:    {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-httpdns-cn.mrs, path: ./ruleset/category-httpdns-cn.mrs}
   PublicTracker: {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-public-tracker.mrs, path: ./ruleset/category-public-tracker.mrs}
   Speedtest:     {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-speedtest.mrs, path: ./ruleset/category-speedtest.mrs}
@@ -535,6 +538,7 @@ rule-providers:
   China-IP:      {<<: *IpcMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cn.mrs, path: ./ruleset/cn-ip.mrs}
   Apple-IP:      {<<: *IpcMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs, path: ./ruleset/apple_ip.mrs}
   Trackers-IP:   {<<: *ClsYml, url: https://raw.githubusercontent.com/yhlh9982/clash-rules/master/trackers_ip.yaml, path: ./ruleset/trackers_ip.yaml}
+  DNS_IP:        {<<: *IpcMrs, url: https://gcore.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Encrypted_DNS_IP.mrs, path: ./ruleset/Encrypted_DNS_IP.mrs}
     
     
 # ========================
