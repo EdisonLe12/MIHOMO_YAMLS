@@ -271,7 +271,7 @@ rules:
 # ==================== 阻止 QUIC/APP内置DOH ====================
   - AND,(DST-PORT,443),(NETWORK,UDP),(NOT,((RULE-SET,China))),REJECT
   - AND,(DST-PORT,443),(NETWORK,UDP),(NOT,((RULE-SET,China-IP))),REJECT
-  - RULE-SET,Encrypted_DNS_IP,REJECT,no-resolve
+  - RULE-SET,DNS-IP,REJECT,no-resolve
   - RULE-SET,Category-DoH,REJECT
 
 # --- 基础直连 ---
@@ -538,7 +538,7 @@ rule-providers:
   China-IP:      {<<: *IpcMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cn.mrs, path: ./ruleset/cn-ip.mrs}
   Apple-IP:      {<<: *IpcMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs, path: ./ruleset/apple_ip.mrs}
   Trackers-IP:   {<<: *ClsYml, url: https://raw.githubusercontent.com/yhlh9982/clash-rules/master/trackers_ip.yaml, path: ./ruleset/trackers_ip.yaml}
-  DNS_IP:        {<<: *IpcMrs, url: https://gcore.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Encrypted_DNS_IP.mrs, path: ./ruleset/Encrypted_DNS_IP.mrs}
+  DNS-IP:        {<<: *IpcMrs, url: https://gcore.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Encrypted_DNS_IP.mrs, path: ./ruleset/Encrypted_DNS_IP.mrs}
     
     
 # ========================
