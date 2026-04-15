@@ -5,6 +5,8 @@
 1、添加Encrypted_DNS_IP和Category-DoH规则走REJECT。 tips：禁止APP走软件内置加密dns，尽量走下游dns
 
 
+
+
 2026.4.8
 
 1、BaseProvider请求头更新header: {User-Agent: ['clash.meta', 'mihomo/1.9.22']}
