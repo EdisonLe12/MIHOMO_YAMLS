@@ -16,49 +16,49 @@
 # YAML模板作者: YYDS666 | 频道: https://t.me/Pinched666 | Github地址: https://github.com/666OS/YYDS
 
 
-# ==================== 锚点配置 ====================
-# 代理提供者模板 - 订阅源基础配置
+# === 锚点配置 ====
+# 节点筛选正则表达式 - 基于地理位置和关键词过滤
 BaseProvider: &BaseProvider { type: http, interval: 86400, proxy: 国内直连, health-check: {enable: true, url: 'https://cp.cloudflare.com/generate_204', interval: 180}, header: {User-Agent: ['clash.meta', 'mihomo/1.9.22']}, override: {skip-cert-verify: true, udp: true},
  exclude-filter: '(?i)(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|剩余|重置|套餐|距离)' }
 
 
-# 策略组类型模板 - 定义不同的策略组基础配置
-BaseSmart: &BaseSmart {type: smart, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true}
-BaseFB: &BaseFB       {type: fallback, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true}
-BaseLB: &BaseLB       {type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204'}
+# 策略组基础配置模板
+BaseSmart: &BaseSmart { type: smart,        interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true }
+BaseFB:    &BaseFB    { type: fallback,     interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true }
+BaseLB:    &BaseLB    { type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
+BaseSL:    &BaseSL    { type: select,       interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
 
+# 策略组代理列表锚点
+SelectAL: &SelectAL { type: select, proxies: [香港-故转, 香港-智能, 日本-故转, 日本-智能, 狮城-故转, 狮城-智能, 美国-故转, 美国-智能, 台湾-故转, 台湾-智能, 低倍率-故转, 高倍率-手选, 冷门节点-手选, 全部节点-手选, 国内直连] } # 全部节点组
+OneSmart: &OneSmart { type: select, proxies: [香港-智能, 日本-智能, 狮城-智能, 台湾-智能, 美国-智能, 冷门节点-智能, 全部节点-手选, 国内直连] } # 智能节点组
+SelectFB: &SelectFB { type: select, proxies: [香港-故转, 日本-故转, 狮城-故转, 美国-故转, 台湾-故转, 低倍率-故转, 全部节点-手选, 国内直连] } # 故转节点组 
+SelectHQ: &SelectHQ { type: select, proxies: [香港-手选, 日本-手选, 狮城-手选, 台湾-手选, 美国-手选, 冷门节点-手选, 全部节点-手选] } # 手选节点组 
+SelectLR: &SelectLR { type: select, proxies: [国内直连, 低倍率-故转, 全部节点-手选] } # 低倍率节点组
+SelectHR: &SelectHR { type: select, proxies: [国内直连, 高倍率-手选, 全部节点-手选] } # 高倍率节点组
+SelectDC: &SelectDC { type: select, proxies: [国内直连] } # 国内直连
 
-# 策略组代理列表锚点模板 - 预定义的代理节点优先级排序
-SelectAL: &SelectAL {type: select, proxies: [香港-故转, 香港-智能, 日本-故转, 日本-智能, 狮城-故转, 狮城-智能, 美国-故转, 美国-智能, 台湾-故转, 台湾-智能, 低倍率-故转, 高倍率-手选, 冷门节点-手选, 全部节点-手选, 国内直连]} #全部节点组
-OneSmart: &OneSmart {type: select, proxies: [香港-智能, 日本-智能, 狮城-智能, 台湾-智能, 美国-智能, 冷门节点-智能, 全部节点-手选, 国内直连]} #智能节点组
-SelectFB: &SelectFB {type: select, proxies: [香港-故转, 日本-故转, 狮城-故转, 美国-故转, 台湾-故转, 低倍率-故转, 全部节点-手选, 国内直连]}   #故转节点组 
-SelectHQ: &SelectHQ {type: select, proxies: [香港-手选, 日本-手选, 狮城-手选, 台湾-手选, 美国-手选, 冷门节点-手选, 全部节点-手选]}          #手选节点组 
-SelectLR: &SelectLR {type: select, proxies: [国内直连, 低倍率-故转, 全部节点-手选]}                                                      #低倍率节点组
-SelectHR: &SelectHR {type: select, proxies: [国内直连, 高倍率-手选, 全部节点-手选]}                                                      #高倍率节点组
-SelectDC: &SelectDC {type: select, proxies: [国内直连]}                                                                                #国内直连
-
-
-# 节点筛选正则表达式 - 基于地理位置和关键词过滤
-# --- 全部节点 ---
+# 节点筛选正则表达式
+# --- 基础与兜底 ---
 FilterAL: &FilterAL { filter: '^(?!.*(DIRECT|直接连接|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Global.png' }
-# --- 冷门节点 ---
 FilterEU: &FilterEU { filter: '^(?i)(?!.*(🇭🇰|香港|hong\s?kong|HK[-_ ]?\d*|🇸🇬|新加坡|singapore|SG[-_ ]?\d*|🇯🇵|日本|japan|JP[-_ ]?\d*|🇹🇼|台湾|taiwan|TW[-_ ]?\d*|🇺🇸|美国|united\s?states|usa|US[-_ ]?\d*|剩余|重置|套餐|距离|直接连接|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入)).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/European_Union.png' } 
-# --- 倍率节点筛选 ---
-FilterLR: &FilterLR { filter: '^(?i).*(0\.01|0\.[1-8]|下载|实验).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png' } # 低倍率
-FilterHR: &FilterHR { filter: '^(?i).*(?<![0-9.])(x(1\.[5-9]\d*|[2-9](\.\d+)?|10(\.0+)?)|(1\.[5-9]\d*|[2-9](\.\d+)?|10(\.0+)?|高级)x).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin.png' } # 高倍率
-# --- 常用地区节点 ---
+
+# --- 倍率筛选 ---
+FilterLR: &FilterLR { filter: '^(?i).*(0\.01|0\.[1-8]|下载|实验).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png' }
+FilterHR: &FilterHR { filter: '^(?i).*(?<![0-9.])(x(1\.[5-9]\d*|[2-9](\.\d+)?|10(\.0+)?)|(1\.[5-9]\d*|[2-9](\.\d+)?|10(\.0+)?|高级)x).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin.png' }
+
+# --- 常用地区 ---
 FilterUS: &FilterUS { filter: '^(?i)(?!.*南美).*(美|🇺🇸|united\s?states|(?<![a-zA-Z])(US[-_ ]?\d*|USA)|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
 FilterJP: &FilterJP { filter: '^(?i)(?!.*尼日).*(日|🇯🇵|JP|JP[-_ ]?\d*|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
 FilterTW: &FilterTW { filter: '^(?i)(?!.*(烟台|平台)).*(台|🇼🇸|🇹🇼|TW|TW[-_ ]?\d*|tai|TPE|TSA|KHH).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
 FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG[-_ ]?\d*|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
 FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK[-_ ]?\d*).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
-# --- Smart优先级权重 ---
-PriorityNR: &PriorityNR '优:3;中:2;次:1;备:0.5'  # 按订阅质量服务商
+
+# Smart 优先级权重
+PriorityNR: &PriorityNR '优:3;中:2;次:1;备:0.5' # 按订阅质量服务商
 PriorityLR: &PriorityLR '0.01:8;0.1:7;0.2:6;实验:6;0.3:5;0.4:4;0.5:3;0.6:2;0.7:1;0.8:0.5' # 低倍率
 
-
-# --- 规则集锚点 ---
-RuleIntv: &RuleIntv 86400                                        # 外部规则统一更新时间
+# 规则集行为模板
+RuleIntv: &RuleIntv 86400  # 外部规则统一更新时间
 DmnMrs: &DmnMrs { type: http, behavior: domain,    format: mrs,  interval: *RuleIntv }
 DmnYml: &DmnYml { type: http, behavior: domain,    format: yaml, interval: *RuleIntv }
 IpcMrs: &IpcMrs { type: http, behavior: ipcidr,    format: mrs,  interval: *RuleIntv }
