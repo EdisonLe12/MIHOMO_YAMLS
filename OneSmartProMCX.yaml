@@ -243,36 +243,36 @@ proxy-groups:
   - {name: Apple,       <<: *SelectDC, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Apple.png}
   - {name: 国内直连,     type: select, proxies: [DIRECT], hidden: true, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/China.png}
 
-  # 中转服务层 - LoadBalance负载均衡，提供中转服务提升连通性，选用一个或多个服务商做中转，比如 优质服务商，可通过正则表达式，过滤掉不需要的节点，使用时请修改
-  - {name: 中转服务,   <<: *BaseLB, use: [优质服务商], filter: 'HK|TW', hidden: true, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin.png}
+# 中转服务层 - LoadBalance负载均衡，提供中转服务提升连通性，选用一个或多个服务商做中转，比如 优质服务商，可通过正则表达式，过滤掉不需要的节点，使用时请修改
+  - { name: 中转服务,      <<: *BaseLB, use: [优质服务商], filter: 'HK|TW', hidden: true, icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin.png' }
 
   # 线路特性层 - Fallback故障转移，（适合不想节点总是被切换或者对固定IP有要求，若手动选择节点飘红 会自动切到智能策略组，保证节点可用性）,（不需要该策略可以在组名上添加 # 注释）
-  - {name: 香港-故转,  <<: *BaseFB, proxies: [香港-手选, 香港-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png}
-  - {name: 台湾-故转,  <<: *BaseFB, proxies: [台湾-手选, 台湾-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png}
-  - {name: 日本-故转,  <<: *BaseFB, proxies: [日本-手选, 日本-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png}
-  - {name: 狮城-故转,  <<: *BaseFB, proxies: [狮城-手选, 狮城-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png}
-  - {name: 美国-故转,  <<: *BaseFB, proxies: [美国-手选, 美国-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png}
-  - {name: 低倍率-故转,  <<: *BaseFB, proxies: [低倍率-手选, 低倍率-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png}
+  - { name: 香港-故转,     <<: *BaseFB, proxies: [香港-手选, 香港-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
+  - { name: 台湾-故转,     <<: *BaseFB, proxies: [台湾-手选, 台湾-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
+  - { name: 日本-故转,     <<: *BaseFB, proxies: [日本-手选, 日本-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
+  - { name: 狮城-故转,     <<: *BaseFB, proxies: [狮城-手选, 狮城-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
+  - { name: 美国-故转,     <<: *BaseFB, proxies: [美国-手选, 美国-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
+  - { name: 低倍率-故转,   <<: *BaseFB, proxies: [低倍率-手选, 低倍率-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png' }
 
   # 线路特性层 - 手动选择节点，根据自己需求选择节点，建议修改位置顺序发挥线路优势,（不需要该策略可以在组名上添加 # 注释）
-  - { name: 香港-手选, type: select, include-all: true, <<: *FilterHK }
-  - { name: 台湾-手选, type: select, include-all: true, <<: *FilterTW }
-  - { name: 日本-手选, type: select, include-all: true, <<: *FilterJP }
-  - { name: 狮城-手选, type: select, include-all: true, <<: *FilterSG }
-  - { name: 美国-手选, type: select, include-all: true, <<: *FilterUS }
-  - { name: 低倍率-手选, type: select, include-all: true, <<: *FilterLR }
-  - { name: 高倍率-手选, type: select, include-all: true, <<: *FilterHR }
-  - { name: 冷门节点-手选, type: select, include-all: true, <<: *FilterEU }
-  - { name: 全部节点-手选, type: select, include-all: true, <<: *FilterAL }
+  - { name: 香港-手选,     <<: [*BaseSL, *FilterHK], include-all: true }
+  - { name: 台湾-手选,     <<: [*BaseSL, *FilterTW], include-all: true }
+  - { name: 日本-手选,     <<: [*BaseSL, *FilterJP], include-all: true }
+  - { name: 狮城-手选,     <<: [*BaseSL, *FilterSG], include-all: true }
+  - { name: 美国-手选,     <<: [*BaseSL, *FilterUS], include-all: true }
+  - { name: 低倍率-手选,   <<: [*BaseSL, *FilterLR], include-all: true }
+  - { name: 高倍率-手选,   <<: [*BaseSL, *FilterHR], include-all: true }
+  - { name: 冷门节点-手选, <<: [*BaseSL, *FilterEU], include-all: true }
+  - { name: 全部节点-手选, <<: [*BaseSL, *FilterAL], include-all: true }
   
   # 线路策略层 - Smart智能选择，政策权重数值越大优先级越高，修改为关键词节点，比如 优:2;中:1;备:0.5，默认为1，优>中>备，使用时请修改
-  - { name: 香港-智能, <<: [*BaseSmart, *FilterHK], include-all: true, policy-priority: 'PriorityNR' }
-  - { name: 台湾-智能, <<: [*BaseSmart, *FilterTW], include-all: true, policy-priority: 'PriorityNR' }
-  - { name: 日本-智能, <<: [*BaseSmart, *FilterJP], include-all: true, policy-priority: 'PriorityNR' }
-  - { name: 狮城-智能, <<: [*BaseSmart, *FilterSG], include-all: true, policy-priority: 'PriorityNR' }
-  - { name: 美国-智能, <<: [*BaseSmart, *FilterUS], include-all: true, policy-priority: 'PriorityNR' }
-  - { name: 低倍率-智能,   <<: [*BaseSmart, *FilterLR], include-all: true, policy-priority: 'PriorityLR' }
-  - { name: 冷门节点-智能, <<: [*BaseSmart, *FilterEU], include-all: true, policy-priority: 'PriorityNR' }
+  - { name: 香港-智能,     <<: [*BaseSmart, *FilterHK], include-all: true, policy-priority: *PriorityNR }
+  - { name: 台湾-智能,     <<: [*BaseSmart, *FilterTW], include-all: true, policy-priority: *PriorityNR }
+  - { name: 日本-智能,     <<: [*BaseSmart, *FilterJP], include-all: true, policy-priority: *PriorityNR }
+  - { name: 狮城-智能,     <<: [*BaseSmart, *FilterSG], include-all: true, policy-priority: *PriorityNR }
+  - { name: 美国-智能,     <<: [*BaseSmart, *FilterUS], include-all: true, policy-priority: *PriorityNR }
+  - { name: 低倍率-智能,   <<: [*BaseSmart, *FilterLR], include-all: true, policy-priority: *PriorityLR }
+  - { name: 冷门节点-智能, <<: [*BaseSmart, *FilterEU], include-all: true, policy-priority: *PriorityNR }
 
 
 rules:
