@@ -268,8 +268,8 @@ proxy-groups:
   - { name: 日本-智能, <<: [*BaseSmart, *FilterJP], include-all: true, policy-priority: 'PriorityNR' }
   - { name: 狮城-智能, <<: [*BaseSmart, *FilterSG], include-all: true, policy-priority: 'PriorityNR' }
   - { name: 美国-智能, <<: [*BaseSmart, *FilterUS], include-all: true, policy-priority: 'PriorityNR' }
-  - { name: 冷门节点-智能, <<: [*BaseSmart, *FilterEU], include-all: true, policy-priority: 'PriorityNR' }
   - { name: 低倍率-智能,   <<: [*BaseSmart, *FilterLR], include-all: true, policy-priority: 'PriorityLR' }
+  - { name: 冷门节点-智能, <<: [*BaseSmart, *FilterEU], include-all: true, policy-priority: 'PriorityNR' }
 
 
 rules:
