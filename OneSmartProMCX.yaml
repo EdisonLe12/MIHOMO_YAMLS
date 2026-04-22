@@ -55,6 +55,7 @@ FilterUS: &FilterUS { filter: '^(?i)(?!.*南美).*(美|🇺🇸|US|US[-_ ]?\d*|U
 PriorityNR: &PriorityNR '优:3;中:2;次:1;备:0.5'  # 按订阅质量服务商
 PriorityLR: &PriorityLR '0.01:8;0.1:7;0.2:6;实验:6;0.3:5;0.4:4;0.5:3;0.6:2;0.7:1;0.8:0.5' # 低倍率
 
+
 # --- 规则集行为模板 ---
 RuleIntv: &RuleIntv 86400                                        # 外部规则统一更新时间
 DmnMrs: &DmnMrs { type: http, behavior: domain,    format: mrs,  interval: *RuleIntv }
