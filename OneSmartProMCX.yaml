@@ -22,9 +22,9 @@ BaseProvider: &BaseProvider { type: http, interval: 86400, proxy: 国内直连, 
  exclude-filter: '(?i)(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|剩余|重置|套餐|距离)' }
 
 # 策略组类型模板 - 定义不同的策略组基础配置
-BaseLB: &BaseLB       {type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204'}
-BaseFB: &BaseFB       {type: fallback, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true}
 BaseSmart: &BaseSmart {type: smart, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true}
+BaseFB: &BaseFB       {type: fallback, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true}
+BaseLB: &BaseLB       {type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204'}
 
 
 # 策略组代理列表锚点模板 - 预定义的代理节点优先级排序
@@ -46,11 +46,11 @@ FilterEU: &FilterEU { filter: '^(?i)(?!.*(🇭🇰|香港|hong\s?kong|HK[-_ ]?\d
 FilterLR: &FilterLR { filter: '^(?i).*(0\.01|0\.[1-8]|下载|实验).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png' } # 低倍率
 FilterHR: &FilterHR { filter: '^(?i).*(?<![0-9.])(x(1\.[5-9]\d*|[2-9](\.\d+)?|10(\.0+)?)|(1\.[5-9]\d*|[2-9](\.\d+)?|10(\.0+)?|高级)x).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin.png' } # 高倍率
 # --- 常用地区节点 ---
-FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK[-_ ]?\d*).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
-FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG[-_ ]?\d*|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
+FilterUS: &FilterUS { filter: '^(?i)(?!.*南美).*(美|🇺🇸|united\s?states|(?<![a-zA-Z])(US[-_ ]?\d*|USA)|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
 FilterJP: &FilterJP { filter: '^(?i)(?!.*尼日).*(日|🇯🇵|JP|JP[-_ ]?\d*|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
 FilterTW: &FilterTW { filter: '^(?i)(?!.*(烟台|平台)).*(台|🇼🇸|🇹🇼|TW|TW[-_ ]?\d*|tai|TPE|TSA|KHH).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
-FilterUS: &FilterUS { filter: '^(?i)(?!.*南美).*(美|🇺🇸|US|US[-_ ]?\d*|USA|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
+FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG[-_ ]?\d*|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
+FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK[-_ ]?\d*).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
 # --- Smart优先级权重 ---
 PriorityNR: &PriorityNR '优:3;中:2;次:1;备:0.5'  # 按订阅质量服务商
 PriorityLR: &PriorityLR '0.01:8;0.1:7;0.2:6;实验:6;0.3:5;0.4:4;0.5:3;0.6:2;0.7:1;0.8:0.5' # 低倍率
