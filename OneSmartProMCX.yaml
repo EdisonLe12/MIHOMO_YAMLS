@@ -22,8 +22,8 @@ BaseProvider: &BaseProvider { type: http, interval: 86400, proxy: 国内直连, 
  exclude-filter: '(?i)(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|剩余|重置|套餐|距离)' }
 
 # 策略组类型模板 - 定义不同的策略组基础配置
-BaseFB: &BaseFB       {type: fallback, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204'}
 BaseLB: &BaseLB       {type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204'}
+BaseFB: &BaseFB       {type: fallback, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true}
 BaseSmart: &BaseSmart {type: smart, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true}
 
 
