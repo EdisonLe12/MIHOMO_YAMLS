@@ -25,8 +25,8 @@ BaseProvider: &BaseProvider { type: http, interval: 86400, proxy: 国内直连, 
 # 策略组基础配置模板
 BaseSmart: &BaseSmart { type: smart,        interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true }
 BaseFB:    &BaseFB    { type: fallback,     interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true }
-BaseLB:    &BaseLB    { type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
 BaseSL:    &BaseSL    { type: select,       interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
+BaseLB:    &BaseLB    { type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
 
 # 策略组代理列表锚点
 SelectAL: &SelectAL { type: select, proxies: [香港-故转, 香港-智能, 日本-故转, 日本-智能, 狮城-故转, 狮城-智能, 美国-故转, 美国-智能, 台湾-故转, 台湾-智能, 低倍率-故转, 高倍率-手选, 冷门节点-手选, 全部节点-手选, 国内直连] } # 全部节点组
