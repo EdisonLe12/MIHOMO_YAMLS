@@ -234,6 +234,7 @@ proxy-groups:
   - {name: Microsoft,   <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Microsoft.png}
   - {name: TikTok,      <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/TikTok_1.png}
   - {name: Crypto,      <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Cryptocurrency_3.png}
+  - {name: PayPal,      <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/PayPal.png}  
   - {name: 漏网之鱼,     <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Final.png}
   - {name: Emby,        <<: *SelectLR, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Emby.png}
   - {name: Tracker,     <<: *SelectLR, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png}
@@ -348,8 +349,9 @@ rules:
   - RULE-SET,Bing,Proxy                            # Bing 搜索引擎 
   - RULE-SET,MSN,Proxy                             # MSN
 
-# --- 货币平台 ---
+# --- 支付/货币平台 ---
   - RULE-SET,Crypto,Crypto                         # Bybit 等虚拟货币
+  - RULE-SET,PayPal,PayPal                         # PayPal 贝宝
 
 # --- Emby 服务 ---
 #（需要自己另外补上emby域名，- DOMAIN,你的emby域名,Emby）
@@ -470,6 +472,7 @@ rule-providers:
   Communication: {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-communication.mrs, path: ./ruleset/category-communication.mrs}
   SocialMedia:   {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-social-media-!cn.mrs, path: ./ruleset/category-social-media-!cn.mrs}
   Ecommerce:     {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ecommerce.mrs, path: ./ruleset/category-ecommerce.mrs}
+  PayPal:        {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/paypal.mrs, path: ./ruleset/paypal.mrs}
   Crypto:        {<<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-cryptocurrency.mrs, path: ./ruleset/category-cryptocurrency.mrs}
 
   # --- 🎬 流媒体 ---
