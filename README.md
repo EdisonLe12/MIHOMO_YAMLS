@@ -1,5 +1,10 @@
 📝 更新日志
 
+2026.4.22
+1、增加Smart节点权重锚点
+2、添加PayPal规则
+
+
 2026.4.13
 
 1、添加Encrypted_DNS_IP和Category-DoH规则走REJECT。 tips：禁止APP走软件内置加密dns，尽量走下游dns
