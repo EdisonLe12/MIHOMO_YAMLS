@@ -27,8 +27,8 @@ BaseLB: &BaseLB       {type: load-balance, interval: 60, lazy: true, url: 'https
 BaseSmart: &BaseSmart {type: smart, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true}
 
 
-# 策略组代理列表前置模板 - 预定义的代理节点优先级排序
-SelectAL: &SelectAL {type: select, proxies: [香港-智能, 香港-故转, 日本-智能, 日本-故转, 狮城-智能, 狮城-故转, 美国-智能, 美国-故转, 台湾-智能, 台湾-故转, 低倍率-故转, 高倍率-手选, 冷门节点-手选, 全部节点-手选, 国内直连]} #全部节点组
+# 策略组代理列表锚点模板 - 预定义的代理节点优先级排序
+SelectAL: &SelectAL {type: select, proxies: [香港-故转, 香港-智能, 日本-故转, 日本-智能, 狮城-故转, 狮城-智能, 美国-故转, 美国-智能, 台湾-故转, 台湾-智能, 低倍率-故转, 高倍率-手选, 冷门节点-手选, 全部节点-手选, 国内直连]} #全部节点组
 OneSmart: &OneSmart {type: select, proxies: [香港-智能, 日本-智能, 狮城-智能, 台湾-智能, 美国-智能, 冷门节点-智能, 全部节点-手选, 国内直连]} #智能节点组
 SelectFB: &SelectFB {type: select, proxies: [香港-故转, 日本-故转, 狮城-故转, 美国-故转, 台湾-故转, 低倍率-故转, 全部节点-手选, 国内直连]}   #故转节点组 
 SelectHQ: &SelectHQ {type: select, proxies: [香港-手选, 日本-手选, 狮城-手选, 台湾-手选, 美国-手选, 冷门节点-手选, 全部节点-手选]}          #手选节点组 
@@ -37,7 +37,7 @@ SelectHR: &SelectHR {type: select, proxies: [国内直连, 高倍率-手选, 全
 SelectDC: &SelectDC {type: select, proxies: [国内直连]}                                                                                #国内直连
 
 
-# 节点筛选正则（前置模板）
+# 节点筛选正则（锚点模板）
 # --- 全部节点 ---
 FilterAL: &FilterAL { filter: '^(?!.*(DIRECT|直接连接|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Global.png' }
 # --- 冷门节点 ---
@@ -54,6 +54,15 @@ FilterUS: &FilterUS { filter: '^(?i)(?!.*南美).*(美|🇺🇸|US|US[-_ ]?\d*|U
 # --- Smart优先级权重 ---
 PriorityNR: &PriorityNR '优:3;中:2;次:1;备:0.5' #按订阅质量服务商
 PriorityLR: &PriorityLR '0.01:8;0.1:7;0.2:6;实验:6;0.3:5;0.4:4;0.5:3;0.6:2;0.7:1;0.8:0.5' # 低倍率
+
+# --- 规则集行为模板 ---
+RuleIntv: &RuleIntv 86400                                        #外部规则统一更新时间
+DmnMrs: &DmnMrs { type: http, behavior: domain,    format: mrs,  interval: *RuleIntv }
+DmnYml: &DmnYml { type: http, behavior: domain,    format: yaml, interval: *RuleIntv }
+IpcMrs: &IpcMrs { type: http, behavior: ipcidr,    format: mrs,  interval: *RuleIntv }
+ClsTxt: &ClsTxt { type: http, behavior: classical, format: text, interval: *RuleIntv }
+ClsYml: &ClsYml { type: http, behavior: classical, format: yaml, interval: *RuleIntv }
+# 命名逻辑：Dmn=Domain, Ipc=IPCIDR, Cls=Classical | Mrs=MRS, Yml=YAML, Txt=Text
 
 
 # ==================== 代理提供者 ====================
@@ -231,10 +240,10 @@ proxy-groups:
   - {name: Apple,       <<: *SelectDC, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Apple.png}
   - {name: 国内直连,     type: select, proxies: [DIRECT], hidden: true, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/China.png}
 
-    # 中转服务层 - LoadBalance负载均衡，提供中转服务提升连通性，选用一个或多个服务商做中转，比如 优质服务商，可通过正则表达式，过滤掉不需要的节点，使用时请修改
+  # 中转服务层 - LoadBalance负载均衡，提供中转服务提升连通性，选用一个或多个服务商做中转，比如 优质服务商，可通过正则表达式，过滤掉不需要的节点，使用时请修改
   - {name: 中转服务,   <<: *BaseLB, use: [优质服务商], filter: 'HK|TW', hidden: true, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin.png}
 
-    # 线路特性层 - Fallback故障转移，（适合不想节点总是被切换或者对固定IP有要求，若手动选择节点飘红 会自动切到智能策略组，保证节点可用性）,（不需要该策略可以在组名上添加 # 注释）
+  # 线路特性层 - Fallback故障转移，（适合不想节点总是被切换或者对固定IP有要求，若手动选择节点飘红 会自动切到智能策略组，保证节点可用性）,（不需要该策略可以在组名上添加 # 注释）
   - {name: 香港-故转,  <<: *BaseFB, proxies: [香港-手选, 香港-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png}
   - {name: 台湾-故转,  <<: *BaseFB, proxies: [台湾-手选, 台湾-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png}
   - {name: 日本-故转,  <<: *BaseFB, proxies: [日本-手选, 日本-智能 ], icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png}
@@ -253,7 +262,7 @@ proxy-groups:
   - { name: 冷门节点-手选, type: select, include-all: true, <<: *FilterEU }
   - { name: 全部节点-手选, type: select, include-all: true, <<: *FilterAL }
   
- # 地理策略层 - Smart智能选择，政策权重数值越大优先级越高，修改为关键词节点，比如 优:2;中:1;备:0.5，默认为1，优>中>备，使用时请修改
+  # 线路策略层 - Smart智能选择，政策权重数值越大优先级越高，修改为关键词节点，比如 优:2;中:1;备:0.5，默认为1，优>中>备，使用时请修改
   - { name: 香港-智能, <<: [*BaseSmart, *FilterHK], include-all: true, policy-priority: 'PriorityNR' }
   - { name: 台湾-智能, <<: [*BaseSmart, *FilterTW], include-all: true, policy-priority: 'PriorityNR' }
   - { name: 日本-智能, <<: [*BaseSmart, *FilterJP], include-all: true, policy-priority: 'PriorityNR' }
@@ -424,16 +433,6 @@ rules:
   #所有未被以上规则命中的流量，将使用“漏网之鱼”策略组
   - MATCH,漏网之鱼
   
-
-# ==================== 规则集行为模板 ====================
-RuleIntv: &RuleIntv 86400             #外部规则统一更新时间
-DmnMrs: &DmnMrs { type: http, behavior: domain,    format: mrs,  interval: *RuleIntv }
-DmnYml: &DmnYml { type: http, behavior: domain,    format: yaml, interval: *RuleIntv }
-IpcMrs: &IpcMrs { type: http, behavior: ipcidr,    format: mrs,  interval: *RuleIntv }
-ClsTxt: &ClsTxt { type: http, behavior: classical, format: text, interval: *RuleIntv }
-ClsYml: &ClsYml { type: http, behavior: classical, format: yaml, interval: *RuleIntv }
-# 命名逻辑：Dmn=Domain, Ipc=IPCIDR, Cls=Classical | Mrs=MRS, Yml=YAML, Txt=Text
-
 
 # 域名规则
 rule-providers:
