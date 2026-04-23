@@ -30,9 +30,9 @@ BaseLB:   &BaseLB   { type: load-balance, interval: 60, lazy: true, url: 'https:
 
 # 策略组代理列表锚点
 SelectAL: &SelectAL { type: select, proxies: [香港-故转, 香港-智能, 日本-故转, 日本-智能, 狮城-故转, 狮城-智能, 美国-故转, 美国-智能, 台湾-故转, 台湾-智能, 低倍率-故转, 高倍率-手选, 冷门节点-手选, 全部节点-手选, 国内直连] } # 全部节点组
-OneSmart: &OneSmart { type: select, proxies: [香港-智能, 日本-智能, 狮城-智能, 台湾-智能, 美国-智能, 冷门节点-智能, 全部节点-手选, 国内直连] } # 智能节点组
-SelectFB: &SelectFB { type: select, proxies: [香港-故转, 日本-故转, 狮城-故转, 美国-故转, 台湾-故转, 低倍率-故转, 全部节点-手选, 国内直连] } # 故转节点组 
-SelectHQ: &SelectHQ { type: select, proxies: [香港-手选, 日本-手选, 狮城-手选, 台湾-手选, 美国-手选, 冷门节点-手选, 全部节点-手选] } # 手选节点组 
+OneSmart: &OneSmart { type: select, proxies: [香港-智能, 日本-智能, 狮城-智能, 台湾-智能, 美国-智能, 低倍率-智能, 冷门节点-智能, 全部节点-手选, 国内直连] } # 智能节点组
+SelectHQ: &SelectHQ { type: select, proxies: [香港-手选, 日本-手选, 狮城-手选, 台湾-手选, 美国-手选, 低倍率-手选, 冷门节点-手选, 全部节点-手选, 国内直连] } # 手选节点组 
+SelectFB: &SelectFB { type: select, proxies: [香港-故转, 日本-故转, 狮城-故转, 台湾-故转, 美国-故转, 低倍率-故转, 全部节点-手选, 国内直连] } # 故转节点组 
 SelectLR: &SelectLR { type: select, proxies: [国内直连, 低倍率-故转, 全部节点-手选] } # 低倍率节点组
 SelectHR: &SelectHR { type: select, proxies: [国内直连, 高倍率-手选, 全部节点-手选] } # 高倍率节点组
 SelectDC: &SelectDC { type: select, proxies: [国内直连] } # 国内直连
@@ -247,11 +247,11 @@ proxy-groups:
   - { name: 中转服务,      <<: *BaseLB, use: [优质服务商], filter: 'HK|TW', hidden: true, icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin.png' }
 
   # 线路特性层 - Fallback故障转移，（适合不想节点总是被切换或者对固定IP有要求，若手动选择节点飘红 会自动切到智能策略组，保证节点可用性）,（不需要该策略可以在组名上添加 # 注释）
-  - { name: 香港-故转,     <<: *BaseFB, proxies: [香港-手选, 香港-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
-  - { name: 台湾-故转,     <<: *BaseFB, proxies: [台湾-手选, 台湾-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
-  - { name: 日本-故转,     <<: *BaseFB, proxies: [日本-手选, 日本-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
-  - { name: 狮城-故转,     <<: *BaseFB, proxies: [狮城-手选, 狮城-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
-  - { name: 美国-故转,     <<: *BaseFB, proxies: [美国-手选, 美国-智能],    icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
+  - { name: 香港-故转,     <<: *BaseFB, proxies: [香港-手选, 香港-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
+  - { name: 台湾-故转,     <<: *BaseFB, proxies: [台湾-手选, 台湾-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
+  - { name: 日本-故转,     <<: *BaseFB, proxies: [日本-手选, 日本-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
+  - { name: 狮城-故转,     <<: *BaseFB, proxies: [狮城-手选, 狮城-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
+  - { name: 美国-故转,     <<: *BaseFB, proxies: [美国-手选, 美国-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
   - { name: 低倍率-故转,    <<: *BaseFB, proxies: [低倍率-手选, 低倍率-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png' }
 
   # 线路策略层 - Smart智能选择，政策权重数值越大优先级越高，修改为关键词节点，比如 优:2;中:1;备:0.5，默认为1，优>中>备，使用时请修改
