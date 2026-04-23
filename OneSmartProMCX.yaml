@@ -67,7 +67,7 @@ ClsYml: &ClsYml { type: http, behavior: classical, format: yaml, interval: *Rule
 # 命名逻辑：Dmn=Domain, Ipc=IPCIDR, Cls=Classical | Mrs=MRS, Yml=YAML, Txt=Text
 
 
-# ==================== 机场订阅链接 ====================
+# ==================== 机场订阅链接 =====================
 proxy-providers:
 
   #节点A - 优质节点集合，使用时请修改
@@ -83,7 +83,7 @@ proxy-providers:
   落地服务商: {<<: *BaseProvider, url: '填写你的落地订阅源地址', override: {additional-suffix: ' [中]', dialer-proxy: 中转服务}}
   
 
-# ==================== 自建代理节点 ====================
+# ==================== 自建代理节点 =====================
 proxies:
 
 
