@@ -70,7 +70,7 @@ ClsYml: &ClsYml { type: http, behavior: classical, format: yaml, interval: *Rule
 # ==================== 机场订阅链接 =====================
 proxy-providers:
 
-  #节点A - 优质节点集合，使用时请修改
+  #优质订阅源 - 优质节点集合，使用时请修改
   优质服务商: {<<: *BaseProvider, url: '填写你的优质机场订阅链接', override: {additional-suffix: ' [优]'}}
 
   # 次优质订阅源 - 次优节点集合，使用时请修改
