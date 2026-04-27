@@ -48,8 +48,8 @@ FilterLR: &FilterLR { filter: '^(?i).*(0\.01|0\.[1-8]|下载|实验).*$', icon: 
 
 # --- 常用地区节点 ---
 FilterUS: &FilterUS { filter: '^(?i)(?!.*南美).*(美|🇺🇸|united\s?states|(?<![a-zA-Z])(US[-_ ]?\d*|USA)|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
-FilterJP: &FilterJP { filter: '^(?i)(?!.*尼日).*(日|🇯🇵|JP|JP[-_ ]?\d*|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
 FilterTW: &FilterTW { filter: '^(?i)(?!.*(烟台|平台)).*(台|🇼🇸|🇹🇼|TW|TW[-_ ]?\d*|tai|TPE|TSA|KHH).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
+FilterJP: &FilterJP { filter: '^(?i)(?!.*尼日).*(日|🇯🇵|JP|JP[-_ ]?\d*|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
 FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG[-_ ]?\d*|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
 FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK[-_ ]?\d*).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
 
