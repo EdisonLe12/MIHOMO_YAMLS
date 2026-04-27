@@ -129,8 +129,8 @@ authentication:
 skip-auth-prefixes:                       # 免密 IP 段 (局域网内免输密码)
   - 192.168.1.0/24                        
   - 127.0.0.1/8                           
-  - 100.124.144.0/24                      
-  - 192.168.196.0/24                      
+  - 100.64.1.0/24          
+  - 10.144.1.0/24                      
 
 # 实验性功能
 experimental:
@@ -418,22 +418,7 @@ rules:
   - RULE-SET,Apple,Apple                          # Apple 服务 (App Store/iCloud)
   - RULE-SET,Apple-IP,Apple,no-resolve            # Apple 服务 (App Store/iCloud)
 
-# ---CN 国内服务直连 ---
-# 非全局模式下该部分可以注释
-  - RULE-SET,AI-CN,国内直连                        # 国内 AI (豆包、千问等)
-  - RULE-SET,Netdisk-CN,国内直连                   # 国内网盘
-  - RULE-SET,Bank-CN,国内直连                      # 银行客户端
-  - RULE-SET,Social-CN,国内直连                    # 国内社交 (知乎/微博)
-  - RULE-SET,Media-CN,国内直连                     # 国内流媒体 (爱优腾)    
-  - RULE-SET,Netease,国内直连                      # 网易
-  - RULE-SET,Bilibili,国内直连                     # B站
-  - RULE-SET,Bilibili2,国内直连                    # B站 (补充)
-  - RULE-SET,Baidu,国内直连                        # 百度
-  - RULE-SET,JD,国内直连                           # 京东
-  - RULE-SET,Alibaba,国内直连                      # 阿里 
-  - RULE-SET,Tencent,国内直连                      # 腾讯 
 
-  
   # ==================== 兜底规则 ====================
   # --- 通用代理/国内直连兜底 ---
   # (以下规则用于兜底：非中国网站走代理，中国大陆网站和 IP 走直连)
@@ -451,6 +436,8 @@ rule-providers:
 #==================== 域名规则 (Domain / Geosite)====================
 
   # --- 🏠 基础直连 & 下载 & 测速 ---
+  Apple:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs, path: ./ruleset/apple.mrs }
+  Xunlei:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xunlei.mrs, path: ./ruleset/xunlei.mrs }
   Private:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/private.mrs, path: ./ruleset/private.mrs }
   Category-DoH:   { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-doh.mrs, path: ./ruleset/category-doh.mrs }
   HTTPDNS-CN:     { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-httpdns-cn.mrs, path: ./ruleset/category-httpdns-cn.mrs }
@@ -519,21 +506,6 @@ rule-providers:
   GameDownload:   { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-platforms-download.mrs, path: ./ruleset/category-game-platforms-download.mrs }
   GamesGlobal:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games-!cn.mrs, path: ./ruleset/category-games-!cn.mrs }
   EpicCN:         { <<: *ClsYml, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/classical/epicgames%40cn.yaml, path: ./rule_provider/epicgames_cn.yaml }
-
-  # --- 🇨🇳 国内服务 ---
-  Apple:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs, path: ./ruleset/apple.mrs }
-  Xunlei:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xunlei.mrs, path: ./ruleset/xunlei.mrs }
-  Netease:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/netease.mrs, path: ./ruleset/netease.mrs }
-  Bilibili:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/bilibili.mrs, path: ./ruleset/bilibili.mrs }
-  Bilibili2:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/bilibili2.mrs, path: ./ruleset/bilibili2.mrs }
-  Baidu:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/baidu.mrs, path: ./ruleset/baidu.mrs }
-  JD:             { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/jd.mrs, path: ./ruleset/jd.mrs }
-  Alibaba:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/alibaba.mrs, path: ./ruleset/alibaba.mrs }
-  Tencent:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/tencent.mrs, path: ./ruleset/tencent.mrs }
-  Netdisk-CN:     { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-netdisk-cn.mrs, path: ./ruleset/category-netdisk-cn.mrs }
-  Bank-CN:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-bank-cn.mrs, path: ./ruleset/category-bank-cn.mrs }
-  Social-CN:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-social-media-cn.mrs, path: ./ruleset/category-social-media-cn.mrs }
-  Media-CN:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-media-cn.mrs, path: ./ruleset/category-media-cn.mrs }
 
   # --- 🛡️ 域名兜底 ---
   Scholar:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-scholar-!cn.mrs, path: ./ruleset/category-scholar-!cn.mrs }
