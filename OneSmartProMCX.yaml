@@ -410,7 +410,7 @@ rules:
   - RULE-SET,Microsoft,Microsoft                   # 微软国际服务走代理
   
 # --- 苹果服务 ---
-  - RULE-SET,Apple,Apple                          # Apple 服务 (App Store/iCloud)
+  - RULE-SET,Apple,Apple                           # Apple 服务 (App Store/iCloud)
 
 # --- IP规则 ---
   - RULE-SET,Netflix-IP,Streaming,no-resolve       # Netflix IP 规则
@@ -419,7 +419,7 @@ rules:
   - RULE-SET,Telegram-IP,Proxy,no-resolve          # Telegram IP (通话/图片)
   - RULE-SET,Twitter-IP,Proxy,no-resolve           # Twitter IP
   - RULE-SET,Google-IP,Google,no-resolve           # Google IP
-  - RULE-SET,Apple-IP,Apple,no-resolve            # Apple 服务 (App Store/iCloud)
+  - RULE-SET,Apple-IP,Apple,no-resolve             # Apple 服务 (App Store/iCloud)
 
   # ==================== 兜底规则 ====================
   # --- 通用代理/国内直连兜底 ---
