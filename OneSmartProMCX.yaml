@@ -307,47 +307,46 @@ rules:
   - DOMAIN-REGEX,^dl-[A-Za-z0-9-]+\.mypikpak\.com$,国内直连
  
 # --- BT/PT 下载 ---
+  - DOMAIN-KEYWORD,ipv6tracker,Tracker
   - DOMAIN-KEYWORD,bittorrent,Tracker
   - DOMAIN-KEYWORD,torrent,Tracker
   - DOMAIN-KEYWORD,tracker,Tracker
-  - DOMAIN-KEYWORD,ipv6tracker,Tracker
-  - RULE-SET,Trackers,Tracker
-  - RULE-SET,Trackers-IP,Tracker,no-resolve
   - RULE-SET,PublicTracker,Tracker
+  - RULE-SET,Trackers,Tracker
   - RULE-SET,Xunlei,Tracker
   
 # --- 游戏平台下载 CDN ---
+  - RULE-SET,NintendoCN,国内直连                   # 任天堂下载
+  - RULE-SET,UbisoftCN,国内直连                    # 育碧 Uplay 下载
   - RULE-SET,SteamCN,国内直连                      # Steam下载
   - RULE-SET,EpicCN,国内直连                       # Epic 下载 
-  - RULE-SET,UbisoftCN,国内直连                    # 育碧 Uplay 下载
   - RULE-SET,XboxCN,国内直连                       # Xbox 下载
-  - RULE-SET,NintendoCN,国内直连                   # 任天堂下载
   - RULE-SET,GOGCN,国内直连                        # GOG 下载
-  - RULE-SET,GameDownload,国内直连                 # 游戏平台下载CDN
+  - RULE-SET,GameDownload,国内直连                 # 游戏平台下载CDN兜底
 
 # --- 游戏平台（部分若需要走CN，自行设置国内直连） ---
   - RULE-SET,Accelerator,国内直连                  # 游戏加速器官网直连
+  - RULE-SET,Blizzard,国内直连                     # 暴雪战网
   - RULE-SET,GamesCN,国内直连                      # 国区游戏平台直连
   - RULE-SET,Ubisoft,国内直连                      # 育碧 Uplay
-  - RULE-SET,Blizzard,国内直连                     # 暴雪战网
+  - RULE-SET,PlayStation,ProxyGame                # PSN
+  - RULE-SET,Nintendo,ProxyGame                   # 任天堂
+  - RULE-SET,Origin,ProxyGame                     # Origin
   - RULE-SET,Steam,ProxyGame                      # Steam (登陆，商店/社区等都走代理）
   - RULE-SET,Xbox,ProxyGame                       # Xbox
-  - RULE-SET,PlayStation,ProxyGame                # PSN
   - RULE-SET,Epic,ProxyGame                       # Epic 商店
-  - RULE-SET,Nintendo,ProxyGame                   # 任天堂
-  - RULE-SET,EA,ProxyGame                         # EA Origin
   - RULE-SET,GOG,ProxyGame                        # GOG
-  - RULE-SET,Origin,ProxyGame                     # Origin
+  - RULE-SET,EA,ProxyGame                         # EA Origin
   - RULE-SET,GamesGlobal,ProxyGame                # 非中国区游戏平台走代理兜底
 
 # --- Microsoft 服务 ---
 # --- Copilot 核心对话与网页 ---
   - DOMAIN-SUFFIX,copilot.microsoft.com,AI         # Copilot 主域名
-  - DOMAIN-SUFFIX,copilot.azure.com,AI             # Azure Copilot
-  - DOMAIN,sydney.bing.com,AI                      # Copilot 对话核心接口
-  - DOMAIN,edgeservices.bing.com,AI                # Edge 浏览器侧边栏 AI
-  - DOMAIN-SUFFIX,openai.azure.com,AI              # Azure OpenAI 服务  
   - DOMAIN-SUFFIX,api.microsoftapp.net,AI          # 手机端 Copilot 依赖
+  - DOMAIN-SUFFIX,copilot.azure.com,AI             # Azure Copilot
+  - DOMAIN-SUFFIX,openai.azure.com,AI              # Azure OpenAI 服务  
+  - DOMAIN,edgeservices.bing.com,AI                # Edge 浏览器侧边栏 AI
+  - DOMAIN,sydney.bing.com,AI                      # Copilot 对话核心接口
   - DOMAIN,img.bing.com,AI                         # Bing AI 绘图功能
 # --- Teams ---
   - RULE-SET,Teams,国内直连                         # 微软 Teams
@@ -373,36 +372,32 @@ rules:
 # --- 流媒体 (代理) ---
   - RULE-SET,TikTok-MCX,TikTok                     # TikTok MetaCubeX规则
   - RULE-SET,TikTok-b7,TikTok                      # TikTok blackmatrix7规则补充
-  - RULE-SET,AppleTV,Streaming                     # Apple TV+
   - RULE-SET,PrimeVideo,Streaming                  # Amazon Prime Video
-  - RULE-SET,HBO,Streaming                         # HBO Max/Go
-  - RULE-SET,Hulu,Streaming                        # Hulu
-  - RULE-SET,Netflix,Streaming                     # Netflix 域名规则
-  - RULE-SET,Netflix-IP,Streaming,no-resolve       # Netflix IP 规则
-  - RULE-SET,Disney,Streaming                      # Disney+
+  - RULE-SET,AppleTV,Streaming                     # Apple TV+
   - RULE-SET,Spotify,Streaming                     # Spotify 音乐
   - RULE-SET,YouTube,Streaming                     # YouTube 视频
+  - RULE-SET,Netflix,Streaming                     # Netflix 域名规则
+  - RULE-SET,Disney,Streaming                      # Disney+
+  - RULE-SET,Hulu,Streaming                        # Hulu
+  - RULE-SET,HBO,Streaming                         # HBO Max/Go
+
 
 #--- Google & Play商店更新---
-  - DOMAIN-SUFFIX,googleapis.cn,Google
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,Google
-  - RULE-SET,Google,Google                         # Google 全家桶
-  - RULE-SET,Google-IP,Google,no-resolve           # Google IP
+  - DOMAIN-SUFFIX,googleapis.cn,Google
   - RULE-SET,GoogleFCM,Google                      # Google 推送服务
+  - RULE-SET,Google,Google                         # Google 全家桶
 
 # --- 常用代理服务 ---
+  - RULE-SET,Speedtest,Proxy                       # Speedtest、Fast测速等网站
   - RULE-SET,Telegram,Proxy                        # Telegram 域名
-  - RULE-SET,Telegram-IP,Proxy,no-resolve          # Telegram IP (通话/图片)
   - RULE-SET,Twitter,Proxy                         # Twitter (X)
-  - RULE-SET,Twitter-IP,Proxy,no-resolve           # Twitter IP
-  - RULE-SET,Meta,Proxy                            # Facebook/Meta
-  - RULE-SET,Facebook-IP,Proxy,no-resolve          # Facebook IP
-  - RULE-SET,Tumblr,Proxy                          # Tumblr
   - RULE-SET,Docker,Proxy                          # Docker Hub
-  - RULE-SET,Pixiv,Proxy                           # Pixiv 插画站
+  - RULE-SET,Tumblr,Proxy                          # Tumblr
   - RULE-SET,Reddit,Proxy                          # Reddit
   - RULE-SET,GitHub,Proxy                          # GitHub
-  - RULE-SET,Speedtest,Proxy                       # Speedtest、Fast测速等网站
+  - RULE-SET,Pixiv,Proxy                           # Pixiv 插画站
+  - RULE-SET,Meta,Proxy                            # Facebook/Meta
 
 # --- 国际大类 ---
   - RULE-SET,Communication,Proxy                   # 国际即时通讯 (WhatsApp/Line等)
@@ -416,8 +411,15 @@ rules:
   
 # --- 苹果服务 ---
   - RULE-SET,Apple,Apple                          # Apple 服务 (App Store/iCloud)
-  - RULE-SET,Apple-IP,Apple,no-resolve            # Apple 服务 (App Store/iCloud)
 
+# --- IP规则 ---
+  - RULE-SET,Netflix-IP,Streaming,no-resolve       # Netflix IP 规则
+  - RULE-SET,Trackers-IP,Tracker,no-resolve        # Tracker IP
+  - RULE-SET,Facebook-IP,Proxy,no-resolve          # Facebook IP
+  - RULE-SET,Telegram-IP,Proxy,no-resolve          # Telegram IP (通话/图片)
+  - RULE-SET,Twitter-IP,Proxy,no-resolve           # Twitter IP
+  - RULE-SET,Google-IP,Google,no-resolve           # Google IP
+  - RULE-SET,Apple-IP,Apple,no-resolve            # Apple 服务 (App Store/iCloud)
 
   # ==================== 兜底规则 ====================
   # --- 通用代理/国内直连兜底 ---
