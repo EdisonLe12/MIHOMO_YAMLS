@@ -298,10 +298,10 @@ rules:
 
 # ==================== 独立/特定分流规则 ====================
   # --- PikPak (屏蔽地区检测/直连下载) ---
+  - DOMAIN,access.pikpakdrive.com,REJECT
   - DOMAIN,access.mypikpak.com,REJECT
   - DOMAIN,access.mypikpak.net,REJECT
   - DOMAIN,access.pikpak.me,REJECT
-  - DOMAIN,access.pikpakdrive.com,REJECT
   - DOMAIN-KEYWORD,dl-a10b-,国内直连
   - DOMAIN-KEYWORD,dl-z01a-,国内直连
   - DOMAIN-REGEX,^dl-[A-Za-z0-9-]+\.mypikpak\.com$,国内直连
