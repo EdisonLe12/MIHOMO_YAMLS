@@ -243,9 +243,9 @@ proxy-groups:
   - {name: Emby,          <<: *SelectLR, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Emby.png}
   - {name: PayPal,        <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/PayPal.png}  
   - {name: Crypto,        <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Cryptocurrency_3.png}
+  - {name: Apple,         <<: *SelectDC, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Apple.png}
   - {name: 漏网之鱼,       <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Final.png}
   - {name: Tracker,       <<: *SelectLR, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png}
-  - {name: Apple,         <<: *SelectDC, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Apple.png}
   - {name: 国内直连,       type: select,  proxies: [DIRECT], hidden: true, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/China.png}
 
   # 中转服务层 - LoadBalance负载均衡，提供中转服务提升连通性，选用一个或多个服务商做中转，比如 优质服务商，可通过正则表达式，过滤掉不需要的节点，使用时请修改
@@ -410,7 +410,8 @@ rules:
   - RULE-SET,Microsoft,Microsoft                   # 微软国际服务走代理
   
 # --- 苹果服务 ---
-  - RULE-SET,Apple,Apple                           # Apple 服务 (App Store/iCloud)
+  - RULE-SET,Apple-CN,国内直连                      # Apple 国区
+  - RULE-SET,Apple,Apple                           # Apple 国际
 
 # --- IP规则 ---
   - RULE-SET,Netflix-IP,Streaming,no-resolve       # Netflix IP 规则
@@ -441,6 +442,7 @@ rule-providers:
   Apple:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs, path: ./ruleset/apple.mrs }
   Xunlei:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xunlei.mrs, path: ./ruleset/xunlei.mrs }
   Private:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/private.mrs, path: ./ruleset/private.mrs }
+  Apple-CN:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple-cn.mrs, path: ./ruleset/apple-cn.mrs }
   Category-DoH:   { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-doh.mrs, path: ./ruleset/category-doh.mrs }
   HTTPDNS-CN:     { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-httpdns-cn.mrs, path: ./ruleset/category-httpdns-cn.mrs }
   PublicTracker:  { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-public-tracker.mrs, path: ./ruleset/category-public-tracker.mrs }
