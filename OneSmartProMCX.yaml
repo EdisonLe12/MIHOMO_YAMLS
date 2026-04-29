@@ -88,7 +88,7 @@ proxies:
 
 
 
-# ======================  监听器 ========================
+# ====================== 监听器 ========================
 listeners:
   # Shadowsocks监听器 - 代理节点 玩法：远程连接家庭网络，端口和密码，使用时请修改
   - {name: SS-IN,  type: shadowsocks, listen: '::', port: 10000, udp: true, password: Xf3#Lp9WqZ, cipher: aes-256-gcm}
