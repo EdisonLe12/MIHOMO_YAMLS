@@ -367,7 +367,6 @@ rules:
   - RULE-SET,Hulu,Streaming                        # Hulu
   - RULE-SET,HBO,Streaming                         # HBO Max/Go
 
-
 #--- Google & Play商店更新---
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,Google
   - DOMAIN-SUFFIX,googleapis.cn,Google
