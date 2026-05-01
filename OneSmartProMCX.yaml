@@ -432,7 +432,7 @@ rule-providers:
   HTTPDNS-CN:     { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-httpdns-cn.mrs, path: ./ruleset/category-httpdns-cn.mrs }
   PublicTracker:  { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-public-tracker.mrs, path: ./ruleset/category-public-tracker.mrs }
   Speedtest:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-speedtest.mrs, path: ./ruleset/category-speedtest.mrs }
-  Trackers:       { <<: *DmnYml, url: https://raw.githubusercontent.com/yhlh9982/clash-rules/master/trackers_domain.yaml, path: ./ruleset/trackers_domain.yaml }
+  Trackers:       { <<: *DmnMrs, url: https://github.com/yhlh9982/clash-rules/releases/download/tracker-rules/trackers_domain.mrs, path: ./ruleset/trackers_domain.mrs }
 
   # --- 🤖 AI & 微软 ---
   AI:             { <<: *DmnMrs, url: https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/domain/ai.mrs, path: ./ruleset/Gemini.mrs }
@@ -511,7 +511,7 @@ rule-providers:
   Netflix-IP:     { <<: *IpcMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/netflix.mrs, path: ./ruleset/netflix-ip.mrs }
   China-IP:       { <<: *IpcMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cn.mrs, path: ./ruleset/cn-ip.mrs }
   Apple-IP:       { <<: *IpcMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo-lite/geoip/apple.mrs, path: ./ruleset/apple_ip.mrs }
-  Trackers-IP:    { <<: *ClsYml, url: https://raw.githubusercontent.com/yhlh9982/clash-rules/master/trackers_ip.yaml, path: ./ruleset/trackers_ip.yaml }
+  Trackers-IP:    { <<: *IpcMrs, url: https://github.com/yhlh9982/clash-rules/releases/download/tracker-rules/trackers_ip.mrs, path: ./ruleset/trackers_ip.mrs }
   DNS-IP:         { <<: *IpcMrs, url: https://gcore.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Encrypted_DNS_IP.mrs, path: ./ruleset/Encrypted_DNS_IP.mrs }
     
     
