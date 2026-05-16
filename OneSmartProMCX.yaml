@@ -228,7 +228,7 @@ proxy-groups:
   - {name: TikTok,        <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/TikTok_1.png}
   - {name: Emby,          <<: *SelectLR, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Emby.png}
   - {name: PayPal,        <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/PayPal.png}  
-  - {name: Crypto,        <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Cryptocurrency_3.png}
+  - {name: Crypto,        <<: *SelectAL, icon: https://raw.githubusercontent.com/chaoscard/proxyrules/master/Bitcoin.png}
   - {name: Apple,         <<: *SelectDC, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Apple.png}
   - {name: 漏网之鱼,       <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Final.png}
   - {name: Tracker,       <<: *SelectLR, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png}
@@ -276,11 +276,11 @@ rules:
   - AND,(DST-PORT,443),(NETWORK,UDP),(NOT,((RULE-SET,China-IP))),REJECT
   - RULE-SET,DNS-IP,REJECT,no-resolve
   - RULE-SET,Category-DoH,REJECT
+  - RULE-SET,HTTPDNS-CN,REJECT              
 
 # --- 基础直连 ---
   - RULE-SET,Private,国内直连                      # 局域网域名直连 (路由后台/NAS)
   - RULE-SET,Private-IP,国内直连,no-resolve        # 局域网 IP 直连 (防止环路)
-  - RULE-SET,HTTPDNS-CN,国内直连                   # HTTPDNS 直连 (防止 CDN 误判)
 
 # ==================== 独立/特定分流规则 ====================
   # --- PikPak (屏蔽地区检测/直连下载) ---
@@ -302,12 +302,6 @@ rules:
   - RULE-SET,Xunlei,Tracker
   
 # --- 游戏平台下载 CDN ---
-  - RULE-SET,NintendoCN,国内直连                   # 任天堂下载
-  - RULE-SET,UbisoftCN,国内直连                    # 育碧 Uplay 下载
-  - RULE-SET,SteamCN,国内直连                      # Steam下载
-  - RULE-SET,EpicCN,国内直连                       # Epic 下载 
-  - RULE-SET,XboxCN,国内直连                       # Xbox 下载
-  - RULE-SET,GOGCN,国内直连                        # GOG 下载
   - RULE-SET,GameDownload,国内直连                 # 游戏平台下载CDN兜底
 
 # --- 游戏平台（部分若需要走CN，自行设置国内直连） ---
@@ -334,8 +328,7 @@ rules:
   - DOMAIN,edgeservices.bing.com,AI                # Edge 浏览器侧边栏 AI
   - DOMAIN,sydney.bing.com,AI                      # Copilot 对话核心接口
   - DOMAIN,img.bing.com,AI                         # Bing AI 绘图功能
-# --- Teams ---
-  - RULE-SET,Teams,国内直连                         # 微软 Teams
+
 # --- Bing 搜索 & MSN ---
 # Copilot 走 AI 策略组，Bing/MSN 走Proxy  (Bing/MSN如需访问国内版，请改为直连)
   - RULE-SET,Bing,Proxy                            # Bing 搜索引擎 
@@ -442,7 +435,6 @@ rule-providers:
   Microsoft:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/microsoft.mrs, path: ./ruleset/microsoft.mrs }
   Bing:           { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/bing.mrs, path: ./ruleset/bing.mrs }
   MSN:            { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/msn.mrs, path: ./ruleset/msn.mrs }
-  Teams:          { <<: *ClsYml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Teams/Teams.yaml, path: ./ruleset/blackmatrix/Teams.yaml }
 
   # --- 📲 社交 / 应用 ---
   Google:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs, path: ./ruleset/google.mrs }
@@ -476,25 +468,19 @@ rule-providers:
 
   # --- 🎮 游戏 ---
   Steam:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/steam.mrs, path: ./ruleset/steam.mrs }
-  SteamCN:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/steam@cn.mrs, path: ./rule_provider/steam_cn.mrs }
   Xbox:           { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xbox.mrs, path: ./ruleset/xbox.mrs }
-  XboxCN:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xbox@cn.mrs, path: ./rule_provider/xbox_cn.mrs }
   PlayStation:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/playstation.mrs, path: ./ruleset/playstation.mrs }
   Ubisoft:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/ubisoft.mrs, path: ./ruleset/ubisoft.mrs }
-  UbisoftCN:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/ubisoft@cn.mrs, path: ./rule_provider/ubisoft_cn.mrs }
   Epic:           { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/epicgames.mrs, path: ./ruleset/epicgames.mrs }
   Blizzard:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/blizzard.mrs, path: ./ruleset/blizzard.mrs }
   Nintendo:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/nintendo.mrs, path: ./ruleset/nintendo.mrs }
-  NintendoCN:     { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/nintendo@cn.mrs, path: ./rule_provider/nintendo_cn.mrs }
   EA:             { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/ea.mrs, path: ./ruleset/ea.mrs }
   GOG:            { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gog.mrs, path: ./rule_provider/gog.mrs }
-  GOGCN:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gog@cn.mrs, path: ./rule_provider/gog_cn.mrs }
   Origin:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/origin.mrs, path: ./rule_provider/origin.mrs }
   Accelerator:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-accelerator-cn.mrs, path: ./ruleset/category-game-accelerator-cn.mrs }
   GamesCN:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games-cn.mrs, path: ./ruleset/category-games-cn.mrs }
   GameDownload:   { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-platforms-download.mrs, path: ./ruleset/category-game-platforms-download.mrs }
   GamesGlobal:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games-!cn.mrs, path: ./ruleset/category-games-!cn.mrs }
-  EpicCN:         { <<: *ClsYml, url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/classical/epicgames%40cn.yaml, path: ./rule_provider/epicgames_cn.yaml }
 
   # --- 🛡️ 域名兜底 ---
   Scholar:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-scholar-!cn.mrs, path: ./ruleset/category-scholar-!cn.mrs }
