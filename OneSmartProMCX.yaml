@@ -138,6 +138,8 @@ profile:
 # 流量嗅探
 sniffer:
   enable: true                            # 开启用嗅探功能
+  force-dns-mapping: true                 # 强制 DNS 映射 (从 Fake-IP 还原域名)
+  parse-pure-ip: true                     # 嗅探纯 IP (强制对 IP 进行反向探测)
   override-destination: true              # 使用嗅探结果覆盖连接目标（推荐开启）
   sniff:                                  # 嗅探协议配置
     QUIC:                                 # QUIC 协议嗅探（HTTP/3）
@@ -146,6 +148,7 @@ sniffer:
       ports: [443, 8443]
     HTTP:                                 # HTTP 协议嗅探
       ports: [80, 8080-8880]
+      override-destination: true 
   force-domain:                           # 强制嗅探识别的域名
     - "+.netflix.com"
     - "+.nflxvideo.net"
@@ -161,8 +164,6 @@ sniffer:
     - "+.oray.com"      # 向日葵
     - "+.sunlogin.net"
     - "+.crashlytics.com"
-  parse-pure-ip: true                      # 嗅探纯 IP (强制对 IP 进行反向探测)
-  force-dns-mapping: true                  # 强制 DNS 映射 (从 Fake-IP 还原域名)
 
 # TUN模式配置
 tun:
@@ -212,7 +213,6 @@ dns:
   - "+.docker.io"
   - "+.miwifi.com"
   - "+.stun.*"
-
   fake-ip-filter-mode: blacklist           # Fake-IP 过滤模式：blacklist（黑名单）/ whitelist（白名单）
   respect-rules: false                     # 是否遵循规则（false 表示所有 DNS 查询都通过直连查询，不经过代理规则）
 
