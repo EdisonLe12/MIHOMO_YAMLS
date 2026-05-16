@@ -189,7 +189,8 @@ dns:
     - 180.184.1.1
     - 114.114.114.114
   nameserver:                              # 主 DNS 服务器列表（用于实际域名解析）        
-    - https://dns.alidns.com/dns-query#h3=true
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
 
   fake-ip-filter:
   - rule-set:fakeip-filter                 # Fake-IP 过滤列表（这些域名将返回真实 IP 而非 Fake-IP）
