@@ -402,8 +402,7 @@ rules:
   - RULE-SET,Apple-IP,Apple,no-resolve             # Apple 服务 (App Store/iCloud)
 
   # ==================== 兜底规则 ====================
-  # --- 通用代理/国内直连兜底 ---
-  # (以下规则用于兜底：非中国网站走代理，中国大陆网站和 IP 走直连)
+  # (以下规则用于兜底：非 CN 域名走代理，CN 域名和 CN-IP 走直连)
   - RULE-SET,Geo-!CN,Proxy                                           # 非中国大陆的网站 (重要兜底规则)
   - RULE-SET,China,国内直连                                           # 中国大陆的网站 (重要兜底规则)
   - RULE-SET,China-IP,国内直连,no-resolve                             # 中国大陆 IP (重要兜底规则)
