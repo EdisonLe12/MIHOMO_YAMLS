@@ -24,6 +24,6 @@
 
 ### 📅 2026.04.08
 1. `BaseProvider` 请求头更新 `header`: `{User-Agent: ['clash.meta', 'mihomo/1.9.22']}`
-2. `fallback`、`load-balance`、`smart` 等策略组健康筛查测试间隔调整为 60s
+2. `fallback`、`select`、`smart` 等策略组健康筛查测试间隔调整为 60s
 3. 添加故障转移前置描点、低倍率故转 + `smart` 策略组
 4. 修正节点正则筛选
