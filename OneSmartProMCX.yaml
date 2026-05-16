@@ -403,8 +403,8 @@ rules:
 
   # ==================== 兜底规则 ====================
   # (以下规则用于兜底：非 CN 域名走代理，CN 域名和 CN-IP 走直连)
-  - RULE-SET,Geo-!CN,Proxy                         # 非中国大陆的网站 (重要兜底规则)
-  - RULE-SET,China,国内直连                         # 中国大陆的网站 (重要兜底规则)
+  - RULE-SET,Geo-!CN,Proxy                         # 非中国大陆的域名 (重要兜底规则)
+  - RULE-SET,China,国内直连                         # 中国大陆的域名 (重要兜底规则)
   - RULE-SET,China-IP,国内直连,no-resolve           # 中国大陆 IP (重要兜底规则)
 
   # --- 最终兜底 ---
