@@ -270,8 +270,8 @@ proxy-groups:
 
 rules:
 # ==================== 特定IP分流规则 ====================
-#- IP-CIDR,你需要的代理IP/32,Proxy                                     #需要强制走代理的IP
-#- SRC-IP-CIDR,你需要走直连的IP/32,国内直连                             #需要强制走国内的IP
+#- IP-CIDR,你需要的代理IP/32,Proxy                 # 需要强制走代理的IP
+#- SRC-IP-CIDR,你需要走直连的IP/32,国内直连         # 需要强制走国内的IP
 
 # ==================== 阻止 QUIC/APP内置DOH ====================
   - AND,(DST-PORT,443),(NETWORK,UDP),(NOT,((RULE-SET,China))),REJECT
