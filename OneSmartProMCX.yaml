@@ -23,7 +23,7 @@ BaseProvider: &BaseProvider { type: http, interval: 86400, proxy: 国内直连, 
 
 
 # 策略组基础配置模板
-BaseST:   &BaseST   { type: smart,        interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true, prefer-asn: true }
+BaseST:   &BaseST   { type: smart,        interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true }
 BaseFB:   &BaseFB   { type: fallback,     interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true }
 BaseSL:   &BaseSL   { type: select,       interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
 BaseLB:   &BaseLB   { type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
