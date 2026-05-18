@@ -54,7 +54,7 @@ FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG[-_ ]?\d*|XSP).*$
 FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK[-_ ]?\d*).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
 
 # Smart 优先级权重
-PriorityLR: &PriorityLR ['0.01:8', '0.1:7', '0.2:6', '实验:6', '0.3:5', '0.4:4', '0.5:3', '0.6:2', '0.7:1', '0.8:0.5'] # 低倍率优先级
+PriorityLR: &PriorityLR ['0.01:3', '0.1:2.5', '0.2:2', '实验:2', '0.3:1.5', '0.4:1', '0.5:0.8', '0.6:0.6', '0.7:0.5', '0.8:0.4'] # 低倍率优先级
 PriorityNR: &PriorityNR ['优:3', '中:2', '次:1', '备:0.5'] # 按订阅质量排序优先级
 
 # 规则集行为模板
