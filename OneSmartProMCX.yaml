@@ -419,11 +419,11 @@ rule-providers:
   # --- 🏠 基础直连 & 下载 & 测速 ---
   PublicTracker:  { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-public-tracker.mrs, path: ./ruleset/category-public-tracker.mrs }
   HTTPDNS-CN:     { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-httpdns-cn.mrs, path: ./ruleset/category-httpdns-cn.mrs }
-  Speedtest:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-speedtest.mrs, path: ./ruleset/category-speedtest.mrs }
+  Speedtest:      { <<: *DmnMrs, url: https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/domain/speedtest.mrs, path: ./ruleset/category-speedtest.mrs }
   Trackers:       { <<: *DmnMrs, url: https://github.com/yhlh9982/clash-rules/releases/download/tracker-rules/trackers_domain.mrs, path: ./ruleset/trackers_domain.mrs }
   Category-DoH:   { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-doh.mrs, path: ./ruleset/category-doh.mrs }
   Apple-CN:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple-cn.mrs, path: ./ruleset/apple-cn.mrs }
-  Private:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/private.mrs, path: ./ruleset/private.mrs }
+  私有:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/private.mrs, path: ./ruleset/private.mrs }
   Xunlei:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xunlei.mrs, path: ./ruleset/xunlei.mrs }
   Apple:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/apple.mrs, path: ./ruleset/apple.mrs }
 
@@ -439,7 +439,7 @@ rule-providers:
   # --- 📲 社交 / 应用 ---
   SocialMedia:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-social-media-!cn.mrs, path: ./ruleset/category-social-media-!cn.mrs }
   Crypto:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-cryptocurrency.mrs, path: ./ruleset/category-cryptocurrency.mrs }
-  Communication:  { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-communication.mrs, path: ./ruleset/category-communication.mrs }
+  通信:  { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-communication.mrs, path: ./ruleset/category-communication.mrs }
   Ecommerce:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ecommerce.mrs, path: ./ruleset/category-ecommerce.mrs }
   GoogleFCM:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/googlefcm.mrs, path: ./ruleset/googlefcm.mrs }
   Telegram:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/telegram.mrs, path: ./ruleset/telegram.mrs }
@@ -467,7 +467,7 @@ rule-providers:
 
   # --- 🎮 游戏 ---
   GameDownload:   { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-platforms-download.mrs, path: ./ruleset/category-game-platforms-download.mrs }
-  Accelerator:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-accelerator-cn.mrs, path: ./ruleset/category-game-accelerator-cn.mrs }
+  加速器计划:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-accelerator-cn.mrs, path: ./ruleset/category-game-accelerator-cn.mrs }
   GamesGlobal:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games-!cn.mrs, path: ./ruleset/category-games-!cn.mrs }
   GamesCN:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games-cn.mrs, path: ./ruleset/category-games-cn.mrs }
   PlayStation:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/playstation.mrs, path: ./ruleset/playstation.mrs }
