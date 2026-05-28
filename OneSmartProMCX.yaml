@@ -97,7 +97,7 @@ redir-port: 7892                          # Redir 端口 (透明代理用)
 mixed-port: 7893                          # 混合端口 (HTTP + SOCKS5)
 tproxy-port: 7895                         # TProxy 端口 (Linux/安卓透明代理用)
 ipv6: true                                # 开启 IPv6 支持
-allow-lan: true                           # 允许局域网连接
+allow-lan: false                          # 允许局域网连接
 bind-address: '*'                         # 绑定地址 (* 代表所有网卡)
 find-process-mode: 'always'               # 进程匹配模式
 log-level: warning                        # 日志级别
