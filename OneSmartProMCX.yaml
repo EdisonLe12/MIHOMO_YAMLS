@@ -367,7 +367,7 @@ rules:
   - RULE-SET,Google,Google                         # Google 全家桶
 
 # --- 常用代理服务 ---
-  - RULE-SET,Speedtest,Speedtest                   # Speedtest、Fast测速等网站
+  - RULE-SET,Speedtest,Speedtest                   # Speedtest测速
   - RULE-SET,Telegram,Proxy                        # Telegram 域名
   - RULE-SET,Twitter,Proxy                         # Twitter (X)
   - RULE-SET,Docker,Proxy                          # Docker Hub
