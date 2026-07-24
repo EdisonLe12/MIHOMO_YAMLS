@@ -47,11 +47,11 @@ FilterHR: &FilterHR { filter: '^(?i).*(?<![0-9.])(x(1\.[5-9]\d*|[2-9](\.\d+)?|10
 FilterLR: &FilterLR { filter: '^(?i).*(0\.01|0\.[1-8]|下载|实验).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png' } # 低倍率节点
 
 # --- 常用地区节点 ---
-FilterUS: &FilterUS { filter: '^(?i)(?!.*南美).*(美|🇺🇸|united\s?states|(?<![a-zA-Z])(US[-_ ]?\d*|USA)|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
-FilterTW: &FilterTW { filter: '^(?i)(?!.*(烟台|平台)).*(台|🇼🇸|🇹🇼|TW|TW[-_ ]?\d*|tai|TPE|TSA|KHH).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
-FilterJP: &FilterJP { filter: '^(?i)(?!.*尼日).*(日|🇯🇵|JP|JP[-_ ]?\d*|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
-FilterSG: &FilterSG { filter: '^(?i).*(坡|🇸🇬|Sing|SIN|SG[-_ ]?\d*|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
-FilterHK: &FilterHK { filter: '^(?i).*(港|🇭🇰|Hong|HKG|HK[-_ ]?\d*).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
+FilterUS: &FilterUS { filter: '^(?i)(?!.*(南美|免费)).*(美|🇺🇸|united\s?states|(?<![a-zA-Z])(US[-_ ]?\d*|USA)|SJC|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png' }
+FilterTW: &FilterTW { filter: '^(?i)(?!.*(烟台|平台|免费)).*(台|🇼🇸|🇹🇼|\bTW\b|TW[-_]|TW\d+|tai|TPE|TSA|KHH).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Taiwan.png' }
+FilterJP: &FilterJP { filter: '^(?i)(?!.*(尼日|免费)).*(日|🇯🇵|\bJP\b|JP[-_]|JP\d+|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
+FilterSG: &FilterSG { filter: '^(?i)(?!.*免费).*(坡|🇸🇬|Sing|SIN|\bSG\b|SG[-_]|SG\d+|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
+FilterHK: &FilterHK { filter: '^(?i)(?!.*免费).*(港|🇭🇰|Hong|HKG|\bHK\b|HK[-_]|HK\d+).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
 
 # Smart 优先级权重
 PriorityLR: &PriorityLR "0.01:9;0.1:8;0.2:7;实验:7;0.3:6;0.4:5;0.5:4;0.6:3;0.7:2;0.8:1" # 低倍率优先级
