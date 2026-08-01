@@ -1,5 +1,12 @@
 ## 更新日志
 
+### 📅 2026.08.01
+
+1. TUN 模式新增 `route-exclude-address-set` 底层路由排除功能
+2. 绕过大陆 `Private-IP`、`Trackers-IP` 和 `China-IP` 流量
+
+---
+
 ### 📅 2026.05.18
 1. 修正smart权重锚点写法
    
