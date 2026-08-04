@@ -308,6 +308,7 @@ rules:
   
 # --- 游戏平台下载 CDN ---
   - RULE-SET,GameDownload,国内直连                 # 游戏平台下载CDN兜底
+  - DOMAIN-SUFFIX,steamcontent.com,国内直连        # 强制拦截所有 Steam 下载节点走直连
 
 # --- 游戏平台（部分若需要走CN，自行设置国内直连） ---
   - RULE-SET,Accelerator,国内直连                  # 游戏加速器官网直连
