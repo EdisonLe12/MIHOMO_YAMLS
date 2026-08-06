@@ -52,6 +52,7 @@ FilterTW: &FilterTW { filter: '^(?i)(?!.*(烟台|平台|免费)).*(台|🇼🇸|
 FilterJP: &FilterJP { filter: '^(?i)(?!.*(尼日|免费)).*(日|🇯🇵|\bJP\b|JP[-_]|JP\d+|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
 FilterSG: &FilterSG { filter: '^(?i)(?!.*免费).*(坡|🇸🇬|Sing|SIN|\bSG\b|SG[-_]|SG\d+|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
 FilterHK: &FilterHK { filter: '^(?i)(?!.*免费).*(港|🇭🇰|Hong|HKG|\bHK\b|HK[-_]|HK\d+).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
+FilterJK: &FilterJK { filter: '(?i)家宽', icon: 'https://img.icons8.com/fluency/256/home.png' }
 
 # Smart 优先级权重
 PriorityLR: &PriorityLR "0.01:9;0.1:8;0.2:7;实验:7;0.3:6;0.4:5;0.5:4;0.6:3;0.7:2;0.8:1" # 低倍率优先级
@@ -80,7 +81,7 @@ proxy-providers:
   备用服务商: {<<: *BaseProvider, url: '填写你的备用机场订阅链接', override: {additional-suffix: ' [备]'}}
 
   # 落地订阅源 - 落地服务连接，使用时请修改
-  落地服务商: {<<: *BaseProvider, url: '填写你的落地订阅源地址', override: {additional-suffix: ' [中]', dialer-proxy: 中转服务}}
+  落地服务商: {<<: *BaseProvider, url: '填写你的落地订阅源地址', override: {additional-suffix: ' [中]', dialer-proxy: 链式代理}}
   
 
 # ==================== 自建代理节点 =====================
@@ -223,6 +224,7 @@ dns:
 proxy-groups:
   # 应用策略层 - Select手动选择，支持多场景应用优化，使用时默认，也可修改
   - {name: Proxy,         <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Proxy.png}
+  - {name: 链式代理,        type: select,  proxies: [香港-故转, 日本-故转, 狮城-故转, 台湾-故转, 美国-故转, 冷门节点-手选, 全部节点-手选], icon: https://img.icons8.com/fluency/256/workflow.png}
   - {name: AI,            <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/AI.png}
   - {name: ProxyGame,     <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Game.png}
   - {name: Streaming,     <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/DomesticMedia.png}
@@ -265,6 +267,7 @@ proxy-groups:
   - { name: 日本-手选,     <<: [*BaseSL, *FilterJP], include-all: true }
   - { name: 狮城-手选,     <<: [*BaseSL, *FilterSG], include-all: true }
   - { name: 美国-手选,     <<: [*BaseSL, *FilterUS], include-all: true }
+  - { name: 家宽-手选,     <<: [*BaseSL, *FilterJK], include-all: true }
   - { name: 低倍率-手选,    <<: [*BaseSL, *FilterLR], include-all: true }
   - { name: 高倍率-手选,    <<: [*BaseSL, *FilterHR], include-all: true }
   - { name: 冷门节点-手选,  <<: [*BaseSL, *FilterEU], include-all: true }
