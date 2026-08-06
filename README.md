@@ -5,7 +5,7 @@
 1. TUN 模式新增 `route-exclude-address-set` 底层路由排除功能
 2. 绕过大陆 `Private-IP`、`Trackers-IP` 和 `China-IP` 流量
 3. 新增“链式代理”策略组和“家宽-手选”节点组
-4. - DOMAIN-SUFFIX,steamcontent.com,国内直连 ，强制拦截所有 Steam 下载节点走直连
+4. DOMAIN-SUFFIX,steamcontent.com,国内直连 ，强制拦截所有 Steam 下载节点走直连
 
 
 
