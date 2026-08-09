@@ -121,7 +121,7 @@ skip-auth-prefixes:                       # 免密 IP 段 (局域网内免输密
 # 实验性功能
 experimental:
   quic-go-disable-gso: true               # 禁用 GSO (解决部分 OpenWrt 固件的 UDP 兼容性问题) 
-  recv-msg-x: true                        # 推荐开启：高速下载时显著降低 CPU (MacOS)
+  recv-msg-x: true                        # 推荐开启：高速下载时显著降低 CPU占用 (MacOS)
   send-msg-x: false                       # 推荐关闭：防止多线程大流量下内核假死 (MacOS)
      
 # 管理面板配置
