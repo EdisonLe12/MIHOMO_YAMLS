@@ -224,7 +224,7 @@ dns:
 proxy-groups:
   # 应用策略层 - Select手动选择，支持多场景应用优化，使用时默认，也可修改
   - {name: Proxy,         <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Proxy.png}
-  - {name: 链式代理,        type: select,  proxies: [香港-故转, 日本-故转, 狮城-故转, 台湾-故转, 美国-故转, 冷门节点-手选, 全部节点-手选], icon: https://img.icons8.com/fluency/256/workflow.png}
+  - {name: 链式代理,       type: select,  empty-fallback: "REJECT", proxies: [香港-故转, 日本-故转, 狮城-故转, 台湾-故转, 美国-故转], icon: https://img.icons8.com/fluency/256/workflow.png}
   - {name: AI,            <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/AI.png}
   - {name: ProxyGame,     <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Game.png}
   - {name: Streaming,     <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/DomesticMedia.png}
