@@ -120,7 +120,9 @@ skip-auth-prefixes:                       # 免密 IP 段 (局域网内免输密
 
 # 实验性功能
 experimental:
-  quic-go-disable-gso: true               # 禁用 GSO (解决部分 OpenWrt 固件的 UDP 兼容性问题)  
+  quic-go-disable-gso: true               # 禁用 GSO (解决部分 OpenWrt 固件的 UDP 兼容性问题) 
+  recv-msg-x: true                        # 推荐开启：下行/接收加速，安全降低 CPU 占用 (macOS)
+  send-msg-x: false                       # 推荐关闭：避开 macOS 内核 Bug，防止多线程大流量下系统假死 (macOS)
      
 # 管理面板配置
 external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
