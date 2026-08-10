@@ -261,12 +261,12 @@ proxy-groups:
   - { name: 冷门节点-智能,   <<: [*BaseST, *FilterEU], include-all: true, policy-priority: *PriorityNR }
 
   # 线路特性层 - 手动选择节点，根据自己需求选择节点，建议修改位置顺序发挥线路优势,（不需要该策略可以在组名上添加 # 注释）
+  - { name: 家宽-手选,     <<: [*BaseSL, *FilterJK], include-all: true }
   - { name: 香港-手选,     <<: [*BaseSL, *FilterHK], include-all: true }
   - { name: 台湾-手选,     <<: [*BaseSL, *FilterTW], include-all: true }
   - { name: 日本-手选,     <<: [*BaseSL, *FilterJP], include-all: true }
   - { name: 狮城-手选,     <<: [*BaseSL, *FilterSG], include-all: true }
   - { name: 美国-手选,     <<: [*BaseSL, *FilterUS], include-all: true }
-  - { name: 家宽-手选,     <<: [*BaseSL, *FilterJK], include-all: true }
   - { name: 低倍率-手选,    <<: [*BaseSL, *FilterLR], include-all: true }
   - { name: 高倍率-手选,    <<: [*BaseSL, *FilterHR], include-all: true }
   - { name: 冷门节点-手选,  <<: [*BaseSL, *FilterEU], include-all: true }
