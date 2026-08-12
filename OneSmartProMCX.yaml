@@ -183,7 +183,7 @@ tun:
     - China-IP                             # 绕过CN IP
 
 hosts:
-  'services.googleapis.cn': ['services.googleapis.com']                 # 谷歌商店  解决无法下载的问题
+  services.googleapis.cn: services.googleapis.com  # 谷歌商店  解决无法下载的问题
 
 # DNS配置
 dns:
