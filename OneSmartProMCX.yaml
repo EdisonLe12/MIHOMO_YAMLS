@@ -182,6 +182,9 @@ tun:
     - Trackers-IP                          # 绕过 BT/PT 下载服务器 IP
     - China-IP                             # 绕过CN IP
 
+hosts:
+  'services.googleapis.cn': ['services.googleapis.com']                 # 谷歌商店  解决无法下载的问题
+
 # DNS配置
 dns:
   enable: true                             # 启用内置 DNS 服务器
