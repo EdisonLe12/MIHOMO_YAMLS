@@ -6,6 +6,13 @@
 2. 绕过大陆 `Private-IP`、`Trackers-IP` 和 `China-IP` 流量
 3. 新增“链式代理”策略组，“家宽-手选”节点组
 4. DOMAIN-SUFFIX,steamcontent.com,国内直连 ，强制拦截所有 Steam 下载节点走直连
+5. 节点策略组新增 `empty-fallback: "REJECT"` 参数，修正此前无节点时会自动使用 `COMPATIBLE`（直连）的安全隐患，现遇空直接拦截，彻底防止流量侧漏
+6. 实验性功能开启 `recv-msg-x: true`，大幅降低大文件下载与超清流媒体加载时的设备 CPU 占用
+7. Darwin 性能优化（macOS 原生网络 API 优化），开启 `recv-msg-x: true` 接收加速，在高速下载时显著降低 CPU 占用，
+8. Darwin 性能优化（macOS 原生网络 API 优化），默认关闭`send-msg-x: false` 防止在多线程大流量下载时诱发内核假死
+
+
+---
 
 
 
