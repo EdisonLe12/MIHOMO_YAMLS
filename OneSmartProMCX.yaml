@@ -169,7 +169,7 @@ sniffer:
 # TUN模式配置
 tun:
   enable: true                             # 开启 TUN 模式
-  stack: mixed                             # 协议栈：mixed (混合) / system / gvisor
+  stack: mips                              # 协议栈：mixed (混合) / system / gvisor / mips
   dns-hijack:                              # DNS 劫持 (强制接管设备 DNS 查询)
     - "any:53"                             # 劫持所有 UDP 53
     - "tcp://any:53"                       # 劫持所有 TCP 53
