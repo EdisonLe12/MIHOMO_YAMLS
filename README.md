@@ -15,7 +15,7 @@
 ### 📅 2026.09.22
 
 1. TUN 网络栈切换为自研 `mips`（Mihomo IP Stack）用户态协议栈，相较传统 gVisor 更加轻量且专为代理内核优化。（注：需更新至最新版 Mihomo 内核）
-2. 高频并发场景调优：针对高并发连接密集及 TCP/UDP (QUIC) 混合传输场景优化，消除偶发性网络卡顿。（刷视频/网盘播放/B站等）
+2. 高频并发场景调优：针对高并发连接密集及 TCP/UDP (QUIC) 混合传输场景优化，优化偶发性网络卡顿。（刷视频/网盘播放/B站等）
 3. 并发吞吐与能效表现：显著提升多路并发环境下的吞吐上限，同时优化单路传输能耗，兼顾高吞吐性能与低能耗表现。
  <img width="1080" height="339" alt="telegram-cloud-photo-size-5-6149908103315525700-y" src="https://github.com/user-attachments/assets/b22345be-d4c5-4239-8bd3-6fd9529b7702" />
 
