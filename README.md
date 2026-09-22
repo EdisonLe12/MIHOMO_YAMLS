@@ -1,4 +1,4 @@
-## 更新日志
+## YAML 更新日志
 
 ### Tips:
 1. **保留 `China-IP,no-resolve`（规则默认 / 隐私与防止DNS泄漏优先）**：
