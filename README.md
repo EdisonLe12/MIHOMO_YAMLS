@@ -17,7 +17,8 @@
 1. **TUN 协议栈升级**：网络栈正式迁移至 Mihomo 自研轻量级用户态协议栈 `mips`（Mihomo IP Stack，`stack: mips`）。
 2. **吞吐与能效比优化**：专为代理内核轻量化定制，摆脱传统 gVisor 的繁重开销，显著提升多并发吞吐上限，并大幅优化单路传输能效比（单位能耗减半）。
 3. **高并发混合流体验增强**：专项优化短视频等高频连接及 TCP/UDP (QUIC) 混杂传输场景，消除偶发性异常卡顿。
- 
+ <img width="1080" height="339" alt="telegram-cloud-photo-size-5-6149908103315525700-y" src="https://github.com/user-attachments/assets/b22345be-d4c5-4239-8bd3-6fd9529b7702" />
+
 ---
 
 
