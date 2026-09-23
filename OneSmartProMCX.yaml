@@ -201,8 +201,8 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
 
-  fake-ip-filter:
-  - rule-set:fakeip-filter                 # Fake-IP 过滤列表（这些域名将返回真实 IP 而非 Fake-IP）
+  fake-ip-filter:                          # Fake-IP 过滤列表（这些域名将返回真实 IP 而非 Fake-IP）
+  - rule-set:fakeip-filter                 
   - rule-set:Private
   - rule-set:China
   - rule-set:Trackers
