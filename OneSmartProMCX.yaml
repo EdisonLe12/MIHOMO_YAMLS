@@ -476,11 +476,11 @@ rule-providers:
   GamesCN:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games-cn.mrs, path: ./ruleset/category-games-cn.mrs }
   PlayStation:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/playstation.mrs, path: ./ruleset/playstation.mrs }
   Epic:           { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/epicgames.mrs, path: ./ruleset/epicgames.mrs }
-  Origin:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/origin.mrs, path: ./rule_provider/origin.mrs }
+  Origin:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/origin.mrs, path: ./ruleset/origin.mrs }
   Blizzard:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/blizzard.mrs, path: ./ruleset/blizzard.mrs }
   Nintendo:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/nintendo.mrs, path: ./ruleset/nintendo.mrs }
   Ubisoft:        { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/ubisoft.mrs, path: ./ruleset/ubisoft.mrs }
-  GOG:            { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gog.mrs, path: ./rule_provider/gog.mrs }
+  GOG:            { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gog.mrs, path: ./ruleset/gog.mrs }
   Steam:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/steam.mrs, path: ./ruleset/steam.mrs }
   Xbox:           { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/xbox.mrs, path: ./ruleset/xbox.mrs }
   EA:             { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/ea.mrs, path: ./ruleset/ea.mrs }
