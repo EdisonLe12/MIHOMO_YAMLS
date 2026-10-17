@@ -149,20 +149,20 @@ sniffer:
       ports: [80, 8080-8880]
       override-destination: true 
   force-domain:                           # 强制嗅探识别的域名
-    - "+.netflix.com"
-    - "+.nflxvideo.net"
-    - "+.amazonaws.com"
-    - "+.media.dssott.com"   # Disney+
-    - "+.hbo.com"
-    - "+.hbomaxcdn.com"
-    - "+.tiktok.com"
-  skip-domain:                             # 跳过嗅探的域名 (白名单：防止误杀/断流)
+    - "+.tiktok.com"    
+    - "+.netflix.com"    
+    - "+.nflxvideo.net"   
+    - "+.amazonaws.com"   
+    - "+.media.dssott.com"  
+  skip-domain:                            # 跳过嗅探的域名 (白名单：防止误杀/断流)
     - "Mijia Cloud"
     - dlg.io.mi.com
-    - "+.push.apple.com"
-    - "+.oray.com"      # 向日葵
-    - "+.sunlogin.net"
-    - "+.crashlytics.com"
+    - "+.mi.com" 
+    - "+.xiaomi.com"
+    - "+.miwifi.com" 
+    - "+.oray.com"
+    - "+.sunlogin.net"  
+    - "+.push.apple.com" 
 
 # TUN模式配置
 tun:
