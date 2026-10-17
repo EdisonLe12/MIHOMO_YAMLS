@@ -186,10 +186,21 @@ hosts:
 # DNS配置
 dns:
   enable: true                             # 启用内置 DNS 服务器
-  listen: 0.0.0.0:7874                     # DNS 监听端口 (OpenClash 转发目标)
   ipv6: true                               # 启用 IPv6 解析
   enhanced-mode: fake-ip                   # 模式：fake-ip，redir-host
-  fake-ip-range: 198.18.0.1/16             # Fake-IP 地址池范围（私有地址段，不会与真实 IP 冲突）
+  fake-ip-range: 198.18.0.1/16             # Fake-IP IPv4地址池范围
+  fake-ip-range6: 2001:2::1/48             # Fake-IP IPv6地址池范围
+  use-system-hosts: true                   # 使用操作系统 hosts 文件中的域名映射
+  cache-algorithm: arc                     # DNS 按访问频率与最近使用情况动态淘汰缓存
+  fake-ip-filter-mode: blacklist           # Fake-IP 过滤模式：blacklist（黑名单）/ whitelist（白名单）
+  respect-rules: false                     # 是否遵循规则（false 表示所有 DNS 查询都通过直连查询，不经过代理规则）
+    fake-ip-filter:                        # Fake-IP 过滤列表（这些域名将返回真实 IP 而非 Fake-IP）
+    - "+.lan"
+    - "+.local"
+    - rule-set:fakeip-filter                 
+    - rule-set:Private
+    - rule-set:China
+    - rule-set:Trackers
   default-nameserver:                      # 用于解析下方 nameserver 中 DoH/DoT 的域名
     - tls://223.5.5.5
     - tls://1.12.12.12
@@ -198,16 +209,6 @@ dns:
   nameserver:                              # 主 DNS 服务器列表（用于实际域名解析）        
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-
-  fake-ip-filter:                          # Fake-IP 过滤列表（这些域名将返回真实 IP 而非 Fake-IP）
-    - "+.lan"
-    - "+.local"
-    - rule-set:fakeip-filter                 
-    - rule-set:Private
-    - rule-set:China
-    - rule-set:Trackers
-  fake-ip-filter-mode: blacklist           # Fake-IP 过滤模式：blacklist（黑名单）/ whitelist（白名单）
-  respect-rules: false                     # 是否遵循规则（false 表示所有 DNS 查询都通过直连查询，不经过代理规则）
 
 
 # ==================== 代理策略组 ====================
