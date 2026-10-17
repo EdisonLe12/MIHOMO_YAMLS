@@ -55,10 +55,10 @@ PriorityLR: &PriorityLR "0.01:9;0.1:8;0.2:7;实验:7;0.3:6;0.4:5;0.5:4;0.6:3;0.7
 PriorityNR: &PriorityNR "优:3;中:2;次:1;备:0.5" # 按订阅质量排序优先级
 
 # 规则集行为模板
+RuleIntv: &RuleIntv 86400     # 外部规则统一更新时间 
 DmnMrs: &DmnMrs { type: http, behavior: domain, format: mrs,  interval: *RuleIntv }
 DmnYml: &DmnYml { type: http, behavior: domain, format: yaml, interval: *RuleIntv }
 IpcMrs: &IpcMrs { type: http, behavior: ipcidr, format: mrs,  interval: *RuleIntv }
-RuleIntv: &RuleIntv 86400  # 外部规则统一更新时间
 # 命名逻辑：Dmn=Domain, Ipc=IPCIDR | Mrs=MRS
 
 
