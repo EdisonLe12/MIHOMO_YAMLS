@@ -200,25 +200,12 @@ dns:
     - https://doh.pub/dns-query
 
   fake-ip-filter:                          # Fake-IP 过滤列表（这些域名将返回真实 IP 而非 Fake-IP）
-  - rule-set:fakeip-filter                 
-  - rule-set:Private
-  - rule-set:China
-  - rule-set:Trackers
-  - "+.lan"
-  - "+.local"
-  - "checkip.dyndns.org"
-  - "connectivitycheck.gstatic.com"
-  - "+.push.apple.com"
-  - "time.nist.gov"
-  - "time.windows.com"
-  - "+.battlenet.com"
-  - "+.blzstatic.cn"
-  - "+.nintendo.net"
-  - "+.xboxlive.com"
-  - "+.stun.playstation.net"
-  - "+.docker.io"
-  - "+.miwifi.com"
-  - "+.stun.*"
+    - "+.lan"
+    - "+.local"
+    - rule-set:fakeip-filter                 
+    - rule-set:Private
+    - rule-set:China
+    - rule-set:Trackers
   fake-ip-filter-mode: blacklist           # Fake-IP 过滤模式：blacklist（黑名单）/ whitelist（白名单）
   respect-rules: false                     # 是否遵循规则（false 表示所有 DNS 查询都通过直连查询，不经过代理规则）
 
