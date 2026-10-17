@@ -306,21 +306,6 @@ rules:
   - RULE-SET,EA,ProxyGame                         # EA Origin
   - RULE-SET,GamesGlobal,ProxyGame                # 非中国区游戏平台走代理兜底
 
-# --- Microsoft 服务 ---
-# --- Copilot 核心对话与网页 ---
-  - DOMAIN-SUFFIX,copilot.microsoft.com,AI         # Copilot 主域名
-  - DOMAIN-SUFFIX,api.microsoftapp.net,AI          # 手机端 Copilot 依赖
-  - DOMAIN-SUFFIX,copilot.azure.com,AI             # Azure Copilot
-  - DOMAIN-SUFFIX,openai.azure.com,AI              # Azure OpenAI 服务  
-  - DOMAIN,edgeservices.bing.com,AI                # Edge 浏览器侧边栏 AI
-  - DOMAIN,sydney.bing.com,AI                      # Copilot 对话核心接口
-  - DOMAIN,img.bing.com,AI                         # Bing AI 绘图功能
-
-# --- Bing 搜索 & MSN ---
-# Copilot 走 AI 策略组，Bing/MSN 走Proxy  (Bing/MSN如需访问国内版，请改为直连)
-  - RULE-SET,Bing,Bing                             # Bing 搜索引擎 
-  - RULE-SET,MSN,Bing                              # MSN
-
 # --- 支付/货币平台 ---
   - RULE-SET,Crypto,Crypto                         # Bybit 等虚拟货币
   - RULE-SET,PayPal,PayPal                         # PayPal 贝宝
@@ -370,6 +355,8 @@ rules:
   - RULE-SET,Scholar,Proxy                         # 国际学术 (Google Scholar等)
 
 # --- 微软兜底 ---
+  - RULE-SET,Bing,Bing                             # Bing 搜索引擎 
+  - RULE-SET,MSN,Bing                              # MSN
   - RULE-SET,MicrosoftCN,国内直连                   # 微软中国服务直连
   - RULE-SET,Microsoft,Microsoft                   # 微软国际服务走代理
   
