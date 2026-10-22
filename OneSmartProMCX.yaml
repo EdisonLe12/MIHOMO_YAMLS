@@ -401,7 +401,6 @@ rule-providers:
 
   # --- 🤖 AI & 微软 ---
   GlobalAI:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs, path: ./ruleset/category-ai-!cn.mrs }
-  AI-CN:          { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-cn.mrs, path: ./ruleset/category-ai-cn.mrs }
   MicrosoftCN:    { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/microsoft@cn.mrs, path: ./ruleset/microsoft-cn.mrs }
   Microsoft:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/microsoft.mrs, path: ./ruleset/microsoft.mrs }
   AI:             { <<: *DmnMrs, url: https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/domain/ai.mrs, path: ./ruleset/Gemini.mrs }
