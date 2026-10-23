@@ -223,9 +223,10 @@ proxy-groups:
   - {name: Emby,          <<: *SelectLR, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Emby.png}
   - {name: PayPal,        <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/PayPal.png}  
   - {name: Crypto,        <<: *SelectAL, icon: https://raw.githubusercontent.com/chaoscard/proxyrules/master/Bitcoin.png}
+  - {name: G&A-Push , <<: *SelectLD, icon: https://img.icons8.com/fluency/256/push-notifications.png}
   - {name: Apple,         <<: *SelectLD, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Apple.png}
-  - {name: 漏网之鱼,        <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Final.png}
   - {name: Tracker,       <<: *SelectLR, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png}
+  - {name: 漏网之鱼,        <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Final.png}
   - {name: 国内直连,        type: select,  proxies: [DIRECT], hidden: true, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/China.png}
 
   # 线路特性层 - Fallback故障转移，（适合不想节点总是被切换或者对固定IP有要求，若手动选择节点飘红 会自动切到智能策略组，保证节点可用性）,（不需要该策略可以在组名上添加 # 注释）
@@ -335,10 +336,13 @@ rules:
   - RULE-SET,Hulu,Streaming                        # Hulu
   - RULE-SET,HBO,Streaming                         # HBO Max/Go
 
+#--- Push 推送通知---
+  - RULE-SET,GoogleFCM,G&A-Push                    # Google 推送服务
+  - RULE-SET,APNs,G&A-Push                         # Apple 推送服务
+
 #--- Google & Play商店更新---
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,Google
   - DOMAIN-SUFFIX,googleapis.cn,Google
-  - RULE-SET,GoogleFCM,Google                      # Google 推送服务
   - RULE-SET,Google,Google                         # Google 全家桶
 
 # --- 常用代理服务 ---
@@ -414,7 +418,8 @@ rule-providers:
   Crypto:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-cryptocurrency.mrs, path: ./ruleset/category-cryptocurrency.mrs }
   Communication:  { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-communication.mrs, path: ./ruleset/category-communication.mrs }
   Ecommerce:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ecommerce.mrs, path: ./ruleset/category-ecommerce.mrs }
-  GoogleFCM:      { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/googlefcm.mrs, path: ./ruleset/googlefcm.mrs }
+  GoogleFCM:      { <<: *DmnMrs, url: https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/domain/googlefcm.mrs, path: ./ruleset/googlefcm.mrs }
+  APNs:           { <<: *DmnMrs, url: https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/domain/apns.mrs, path: ./ruleset/apns.mrs }
   Telegram:       { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/telegram.mrs, path: ./ruleset/telegram.mrs }
   Google:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs, path: ./ruleset/google.mrs }
   Reddit:         { <<: *DmnMrs, url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/reddit.mrs, path: ./ruleset/reddit.mrs }
