@@ -189,7 +189,7 @@ dns:
   fake-ip-range: 198.18.0.1/16             # Fake-IP IPv4地址池范围
   fake-ip-range6: 2001:2::1/48             # Fake-IP IPv6地址池范围
   fake-ip-filter-mode: blacklist           # Fake-IP 过滤模式：blacklist（黑名单）/ whitelist（白名单）
-  fake-ip-filter:                        # Fake-IP 过滤列表（这些域名将返回真实 IP 而非 Fake-IP）
+  fake-ip-filter:                          # Fake-IP 过滤列表（这些域名将返回真实 IP 而非 Fake-IP）
     - "+.lan"
     - "+.local"
     - rule-set:fakeip-filter                 
