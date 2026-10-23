@@ -218,6 +218,7 @@ proxy-groups:
   - {name: Microsoft,     <<: *SelectLD, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Microsoft.png}
   - {name: Bing,          <<: *SelectAL, icon: https://raw.githubusercontent.com/Vbaethon/HOMOMIX/refs/heads/main/Icon/Color/Large/Bing.png}
   - {name: Speedtest,     <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Speedtest.png}
+  - {name: YouTube,       <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/YouTube.png}
   - {name: TikTok,        <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/TikTok_1.png}
   - {name: Emby,          <<: *SelectLR, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Emby.png}
   - {name: PayPal,        <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/PayPal.png}  
@@ -323,10 +324,10 @@ rules:
 
 # --- 流媒体 (代理) ---
   - RULE-SET,TikTok,TikTok                         # TikTok 
+  - RULE-SET,YouTube,YouTube                       # YouTube 视频
   - RULE-SET,PrimeVideo,Streaming                  # Amazon Prime Video
   - RULE-SET,AppleTV,Streaming                     # Apple TV+
   - RULE-SET,Spotify,Streaming                     # Spotify 音乐
-  - RULE-SET,YouTube,Streaming                     # YouTube 视频
   - RULE-SET,Netflix,Streaming                     # Netflix 域名规则
   - RULE-SET,Disney,Streaming                      # Disney+
   - RULE-SET,Hulu,Streaming                        # Hulu
