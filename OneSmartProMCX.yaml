@@ -15,6 +15,7 @@
 # 配合手选节点+故转Smart算法智能选择最优节点和节点可用性保证
 # YAML模板原作者: YYDS666 | 频道: https://t.me/Pinched666 | Github地址: https://github.com/666OS/YYDS
 
+
 # === 锚点配置 ====
 # 节点筛选正则表达式 - 基于地理位置和关键词过滤
 BaseProvider: &BaseProvider { type: http, interval: 86400, proxy: 国内直连, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 180}, header: {User-Agent: ['clash.meta', 'mihomo/1.9.22']}, override: {skip-cert-verify: true, udp: true},
