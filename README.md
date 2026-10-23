@@ -14,7 +14,7 @@
 ### 📅 2026.10.23
 
 1. 调整部分规则顺序
-2. 调整 `YouTube` 策略组：从 Streaming 中独立拆分，可单独指定线路
+2. 调整 `YouTube` 策略组：从 Streaming 中独立拆分
 3. 新增 `G&A-Push` 策略组：整合 Google FCM 与苹果 APNs 推送服务
 4. Meta 规则集策略指向由 `Proxy` 改为 `AI`：使用 Muse AI 过程中发现其会走 Instagram 与 Facebook 的 API 及 CDN，Meta规则集相关流量改为与 AI 流量统一出口，避免出口不一致带来的封号风险
 
