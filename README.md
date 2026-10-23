@@ -18,7 +18,7 @@
 3. 新增 `G&A-Push` 策略组：整合 Google FCM 与苹果 APNs 推送服务
 4. Meta 规则集策略指向由 `Proxy` 改为 `AI`：使用 Muse AI 过程中发现其会走 Instagram 与 Facebook 的 API 及 CDN，Meta规则集相关流量改为与 AI 流量统一出口，避免出口不一致带来的封号风险
 
-### 二、`G&A-Push` 策略组Tips
+##`G&A-Push` 策略组Tips
 **1. 选择「Proxy」**
 * **作用**：使 Push 服务长连接经节点建立，海外应用（如 Telegram、X、Line、WhatsApp、Gmail等）后台可以正常推送
 * **注意（国内 App 推送可能异常）**：（如微信、手机银行、QQ、淘宝等）推送通知同样经 Push 下发，原本直达国内；本组选代理后将一并绕行海外节点。可能导致延迟或漏收推送
