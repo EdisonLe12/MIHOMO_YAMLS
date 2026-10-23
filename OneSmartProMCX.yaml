@@ -325,7 +325,10 @@ rules:
 # --- AI (人工智能) ---
   - RULE-SET,AI,AI                                 # ChatGPT/Gemini/Claude 等 AI 服务
   - RULE-SET,Meta,AI                               # Muse/Meta/Facebook
-
+  
+#--- Push 推送通知---
+  - RULE-SET,GoogleFCM,G&A-Push                    # Google 推送服务
+  - RULE-SET,APNs,G&A-Push                         # Apple 推送服务
 
 # --- 流媒体 (代理) ---
   - RULE-SET,TikTok,TikTok                         # TikTok 
@@ -337,10 +340,6 @@ rules:
   - RULE-SET,Disney,Streaming                      # Disney+
   - RULE-SET,Hulu,Streaming                        # Hulu
   - RULE-SET,HBO,Streaming                         # HBO Max/Go
-
-#--- Push 推送通知---
-  - RULE-SET,GoogleFCM,G&A-Push                    # Google 推送服务
-  - RULE-SET,APNs,G&A-Push                         # Apple 推送服务
 
 #--- Google & Play商店更新---
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,Google
