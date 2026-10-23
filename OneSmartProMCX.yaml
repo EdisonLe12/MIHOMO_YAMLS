@@ -321,6 +321,8 @@ rules:
 # ==================== 规则合集 ====================
 # --- AI (人工智能) ---
   - RULE-SET,AI,AI                                 # ChatGPT/Gemini/Claude 等 AI 服务
+  - RULE-SET,Meta,AI                               # Muse/Meta/Facebook
+
 
 # --- 流媒体 (代理) ---
   - RULE-SET,TikTok,TikTok                         # TikTok 
@@ -348,7 +350,6 @@ rules:
   - RULE-SET,Reddit,Proxy                          # Reddit
   - RULE-SET,GitHub,Proxy                          # GitHub
   - RULE-SET,Pixiv,Proxy                           # Pixiv 插画站
-  - RULE-SET,Meta,Proxy                            # Facebook/Meta
 
 # --- 国际大类 ---
   - RULE-SET,Communication,Proxy                   # 国际即时通讯 (WhatsApp/Line等)
