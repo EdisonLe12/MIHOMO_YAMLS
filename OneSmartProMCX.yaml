@@ -236,7 +236,6 @@ proxy-groups:
   - { name: 家宽-故转,     <<: *BaseFB, proxies: [家宽-手选, 家宽-智能], icon: 'https://img.icons8.com/fluency/256/home.png' }
   - { name: 低倍率-故转,    <<: *BaseFB, proxies: [低倍率-手选, 低倍率-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin_1.png' }
 
-
   # 线路策略层 - Smart智能选择，政策权重数值越大优先级越高，修改为关键词节点，比如 优:2;中:1;备:0.5，默认为1，优>中>备，使用时请修改
   - { name: 家宽-智能,     <<: [*BaseST, *FilterJK], include-all: true, policy-priority: *PriorityNR }
   - { name: 香港-智能,     <<: [*BaseST, *FilterHK], include-all: true, policy-priority: *PriorityNR }
